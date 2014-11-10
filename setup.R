@@ -22,6 +22,7 @@ cargarPaquete("tikzDevice")
 cargarPaquete("grid")
 cargarPaquete("extrafont")
 cargarPaquete("gridExtra")
+cargarPaquete("tools")
 
 #**************************CREACION DE TEMAS***********************************#
 
@@ -32,8 +33,8 @@ grisBase <- rgb(152,152,152, maxColorValue = 255)
 fontSize = 10
 temaINE <- theme_gray(base_size = fontSize, base_family = "Open Sans Condensed Light")+ theme(
   text= element_text(family = "Open Sans Condensed Light", face = "plain", colour='black', size = fontSize),
-  axis.text.x = element_text(family = "Open Sans Condensed Light", colour = "black", face = "plain", size = 8, hjust = 0.5, vjust =0.5, angle = 0, lineheight = 0.9),
-  axis.text.y = element_text(family = "Open Sans Condensed Light", colour = "black", face = "plain", size = 8, hjust = 0.5, vjust =0.5, angle = 0, lineheight = 0.9),
+  axis.text.x = element_text(family = "Open Sans Condensed Light", colour = "black", face = "plain", size = 10, hjust = 0.5, vjust =0.5, angle = 0, lineheight = 0.9),
+  axis.text.y = element_text(family = "Open Sans Condensed Light", colour = "black", face = "plain", size = 10, hjust = 0.5, vjust =0.5, angle = 0, lineheight = 0.9),
   panel.background = element_rect(fill = NA),
   panel.grid = element_line(colour = NA),
   panel.grid.major = element_line(colour = NA),
@@ -44,7 +45,7 @@ temaINE <- theme_gray(base_size = fontSize, base_family = "Open Sans Condensed L
   axis.ticks = element_line(colour = NA),
   axis.ticks.x = element_line( size=NULL, color=NA ),
   axis.ticks.y = element_line(size = NULL, color=NA),
-  plot.background = element_rect(fill = NA)
+  plot.background = element_rect(fill = "blue")
 )
 
 temaBarras <- temaINE
@@ -79,4 +80,8 @@ options(tikzUnicodeMetricPackages = c("\\usepackage[T1]{fontenc}\n","\\usetikzli
                                       "\\usepackage{fontspec,xunicode}\n", 
                                       "\\setmainfont{Open Sans Condensed Light}"))
 
+options(tikzDocumentDeclaration= "\\documentclass[12pt]{book}")
 
+
+#***********************ALGUNAS VARIABLES UTILES*******************#
+ignorado <- c("Ignorado", "ignorado", "IGNORADO")
