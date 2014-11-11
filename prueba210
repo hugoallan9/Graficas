@@ -1,0 +1,257 @@
+% Created by tikzDevice version 0.7.0 on 2014-11-10 22:11:20
+% !TEX encoding = UTF-8 Unicode
+\definecolor[named]{fillColor}{rgb}{1.00,1.00,1.00}
+\path[use as bounding box,fill=fillColor,fill opacity=0.00] (0,0) rectangle (280.41,209.58);
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,209.58);
+\definecolor[named]{drawColor}{rgb}{1.00,1.00,1.00}
+\definecolor[named]{fillColor}{rgb}{1.00,1.00,0.00}
+
+\path[draw=drawColor,line width= 0.6pt,line join=round,line cap=round,fill=fillColor] (  0.00,  0.00) rectangle (280.41,209.58);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,209.58);
+
+\path[] ( 21.23, 30.20) rectangle (280.41,209.58);
+
+\path[] ( 28.23, 30.20) --
+	( 28.23,209.58);
+
+\path[] ( 39.91, 30.20) --
+	( 39.91,209.58);
+
+\path[] ( 51.58, 30.20) --
+	( 51.58,209.58);
+
+\path[] ( 63.26, 30.20) --
+	( 63.26,209.58);
+
+\path[] ( 74.93, 30.20) --
+	( 74.93,209.58);
+
+\path[] ( 86.61, 30.20) --
+	( 86.61,209.58);
+
+\path[] ( 98.28, 30.20) --
+	( 98.28,209.58);
+
+\path[] (109.96, 30.20) --
+	(109.96,209.58);
+
+\path[] (121.63, 30.20) --
+	(121.63,209.58);
+
+\path[] (133.31, 30.20) --
+	(133.31,209.58);
+
+\path[] (144.98, 30.20) --
+	(144.98,209.58);
+
+\path[] (156.65, 30.20) --
+	(156.65,209.58);
+
+\path[] (168.33, 30.20) --
+	(168.33,209.58);
+
+\path[] (180.00, 30.20) --
+	(180.00,209.58);
+
+\path[] (191.68, 30.20) --
+	(191.68,209.58);
+
+\path[] (203.35, 30.20) --
+	(203.35,209.58);
+
+\path[] (215.03, 30.20) --
+	(215.03,209.58);
+
+\path[] (226.70, 30.20) --
+	(226.70,209.58);
+
+\path[] (238.38, 30.20) --
+	(238.38,209.58);
+
+\path[] (250.05, 30.20) --
+	(250.05,209.58);
+
+\path[] (261.73, 30.20) --
+	(261.73,209.58);
+
+\path[] (273.40, 30.20) --
+	(273.40,209.58);
+\definecolor[named]{fillColor}{rgb}{0.83,0.49,0.16}
+
+\path[fill=fillColor] ( 24.73, 30.20) rectangle ( 31.73,209.58);
+
+\path[fill=fillColor] ( 36.40, 30.20) rectangle ( 43.41,199.03);
+
+\path[fill=fillColor] ( 48.08, 30.20) rectangle ( 55.08,188.48);
+
+\path[fill=fillColor] ( 59.75, 30.20) rectangle ( 66.76,177.93);
+
+\path[fill=fillColor] ( 71.43, 30.20) rectangle ( 78.43,167.37);
+
+\path[fill=fillColor] ( 83.10, 30.20) rectangle ( 90.11,156.82);
+
+\path[fill=fillColor] ( 94.78, 30.20) rectangle (101.78,156.82);
+
+\path[fill=fillColor] (106.45, 30.20) rectangle (113.46,146.27);
+
+\path[fill=fillColor] (118.13, 30.20) rectangle (125.13,135.72);
+
+\path[fill=fillColor] (129.80, 30.20) rectangle (136.81,135.72);
+
+\path[fill=fillColor] (141.48, 30.20) rectangle (148.48,125.17);
+
+\path[fill=fillColor] (153.15, 30.20) rectangle (160.16,114.61);
+
+\path[fill=fillColor] (164.83, 30.20) rectangle (171.83,104.06);
+
+\path[fill=fillColor] (176.50, 30.20) rectangle (183.51, 93.51);
+
+\path[fill=fillColor] (188.18, 30.20) rectangle (195.18, 82.96);
+
+\path[fill=fillColor] (199.85, 30.20) rectangle (206.86, 82.96);
+
+\path[fill=fillColor] (211.53, 30.20) rectangle (218.53, 82.96);
+
+\path[fill=fillColor] (223.20, 30.20) rectangle (230.21, 72.41);
+
+\path[fill=fillColor] (234.88, 30.20) rectangle (241.88, 61.85);
+
+\path[fill=fillColor] (246.55, 30.20) rectangle (253.56, 51.30);
+
+\path[fill=fillColor] (258.23, 30.20) rectangle (265.23, 51.30);
+
+\path[fill=fillColor] (269.90, 30.20) rectangle (276.91, 40.75);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,209.58);
+
+\path[] ( 21.23, 30.20) --
+	( 21.23,209.58);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,209.58);
+\definecolor[named]{drawColor}{rgb}{0.60,0.60,0.60}
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] ( 21.23, 30.20) --
+	(280.41, 30.20);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,209.58);
+
+\path[] ( 28.23, 25.93) --
+	( 28.23, 30.20);
+
+\path[] ( 39.91, 25.93) --
+	( 39.91, 30.20);
+
+\path[] ( 51.58, 25.93) --
+	( 51.58, 30.20);
+
+\path[] ( 63.26, 25.93) --
+	( 63.26, 30.20);
+
+\path[] ( 74.93, 25.93) --
+	( 74.93, 30.20);
+
+\path[] ( 86.61, 25.93) --
+	( 86.61, 30.20);
+
+\path[] ( 98.28, 25.93) --
+	( 98.28, 30.20);
+
+\path[] (109.96, 25.93) --
+	(109.96, 30.20);
+
+\path[] (121.63, 25.93) --
+	(121.63, 30.20);
+
+\path[] (133.31, 25.93) --
+	(133.31, 30.20);
+
+\path[] (144.98, 25.93) --
+	(144.98, 30.20);
+
+\path[] (156.65, 25.93) --
+	(156.65, 30.20);
+
+\path[] (168.33, 25.93) --
+	(168.33, 30.20);
+
+\path[] (180.00, 25.93) --
+	(180.00, 30.20);
+
+\path[] (191.68, 25.93) --
+	(191.68, 30.20);
+
+\path[] (203.35, 25.93) --
+	(203.35, 30.20);
+
+\path[] (215.03, 25.93) --
+	(215.03, 30.20);
+
+\path[] (226.70, 25.93) --
+	(226.70, 30.20);
+
+\path[] (238.38, 25.93) --
+	(238.38, 30.20);
+
+\path[] (250.05, 25.93) --
+	(250.05, 30.20);
+
+\path[] (261.73, 25.93) --
+	(261.73, 30.20);
+
+\path[] (273.40, 25.93) --
+	(273.40, 30.20);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,209.58);
+\definecolor[named]{drawColor}{rgb}{0.00,0.00,0.00}
+
+\node[text=drawColor,rotate= 90.00,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.83] at ( 31.68, 23.08) {Quetzaltenango};
+
+\node[text=drawColor,rotate= 90.00,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.83] at ( 43.35, 23.08) {Escuintla};
+
+\node[text=drawColor,rotate= 90.00,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.83] at ( 55.03, 23.08) {Huehuetenango};
+
+\node[text=drawColor,rotate= 90.00,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.83] at ( 66.70, 23.08) {San Marcos};
+
+\node[text=drawColor,rotate= 90.00,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.83] at ( 78.37, 23.08) {Alta Verapaz};
+
+\node[text=drawColor,rotate= 90.00,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.83] at ( 90.05, 23.08) {Suchitepéquez};
+
+\node[text=drawColor,rotate= 90.00,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.83] at (101.72, 23.08) {Jutiapa};
+
+\node[text=drawColor,rotate= 90.00,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.83] at (113.40, 23.08) {Retalhuleu};
+
+\node[text=drawColor,rotate= 90.00,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.83] at (125.07, 23.08) {Quiché};
+
+\node[text=drawColor,rotate= 90.00,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.83] at (136.75, 23.08) {Santa Rosa};
+
+\node[text=drawColor,rotate= 90.00,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.83] at (148.42, 23.08) {Petén};
+
+\node[text=drawColor,rotate= 90.00,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.83] at (160.10, 23.08) {Guatemala};
+
+\node[text=drawColor,rotate= 90.00,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.83] at (171.77, 23.08) {Jalapa};
+
+\node[text=drawColor,rotate= 90.00,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.83] at (183.45, 23.08) {Baja Verapaz};
+
+\node[text=drawColor,rotate= 90.00,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.83] at (195.12, 23.08) {Chiquimula};
+
+\node[text=drawColor,rotate= 90.00,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.83] at (206.80, 23.08) {Chimaltenango};
+
+\node[text=drawColor,rotate= 90.00,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.83] at (218.47, 23.08) {Izabal};
+
+\node[text=drawColor,rotate= 90.00,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.83] at (230.15, 23.08) {Sololá};
+
+\node[text=drawColor,rotate= 90.00,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.83] at (241.82, 23.08) {Sacatepéquez};
+
+\node[text=drawColor,rotate= 90.00,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.83] at (253.50, 23.08) {Zacapa};
+
+\node[text=drawColor,rotate= 90.00,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.83] at (265.17, 23.08) {El Progreso};
+
+\node[text=drawColor,rotate= 90.00,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.83] at (276.85, 23.08) {Totonicapán};
+\end{scope}
