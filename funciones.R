@@ -28,7 +28,7 @@ graficaBar <- function(data, color1=rgb(212,126,41, maxColorValue = 255), ancho 
   grafica <- ggplot(data, aes(x, y))
   grafica <- grafica + 
     geom_bar(stat = 'identity',fill = calcularRampa(data, color1), width = ancho, position =  "dodge")+
-    labs(x="",y= "")+
+    labs(x=NULL,y=NULL)+
     scale_y_continuous(breaks=NULL, expand= c(0.0,0.0))+
     coord_flip()
   print(grafica)
@@ -37,7 +37,10 @@ graficaBar <- function(data, color1=rgb(212,126,41, maxColorValue = 255), ancho 
 
 rotarEtiX <- function(graph)
 {
-  graph <- graph + theme(axis.text.x = element_text(angle = 90, vjust =0.5 , hjust= 1))
+  longitud <- 2.5 +2.5
+  graph <- graph + theme(axis.text.x = element_text(angle = 90, vjust =0.5 , hjust= 1))+
+    theme(plot.margin = unit(c(longitud,0,-8,0), "mm"))
+
 }
 
 etiquetasBarras <- function(graph)
@@ -48,14 +51,14 @@ etiquetasBarras <- function(graph)
   print(max)
   graph <- graph +
     geom_text(aes(family = "Open Sans Condensed Light",label= y), size=3, hjust=-0.5, vjust = 0.5)+
-    theme(plot.margin = unit(c(0,longitud,0,0), "mm"))
+    theme(plot.margin = unit(c(longitud,0,0,-7), "mm"))
 }
 
 etiquetasHorizontales <- function(graph)
 {
   longitud <- 2.5 +2.5
   graph <- graph +
-    geom_text(aes(family = "Open Sans Condensed Light",label= prettyNum(y, big.mark = ",")),size=3, hjust=0.5, vjust = 0)+
+    geom_text(aes(family = "Open Sans Condensed Light",label= prettyNum(y,digits = 1,big.mark = ",")),size=3, hjust=0.5, vjust = -0.5)+
     theme(plot.margin = unit(c(longitud,0,0,-7), "mm"))
 }
 

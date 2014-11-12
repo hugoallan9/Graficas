@@ -45,7 +45,8 @@ temaINE <- theme_gray(base_size = fontSize, base_family = "Open Sans Condensed L
   axis.ticks = element_line(colour = NA),
   axis.ticks.x = element_line( size=NULL, color=NA ),
   axis.ticks.y = element_line(size = NULL, color=NA),
-  plot.background = element_rect(fill = "yellow")
+  plot.background = element_rect(fill = "yellow"),
+  panel.background = element_rect(fil = "blue")
 )
 
 temaBarras <- temaINE
