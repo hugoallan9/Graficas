@@ -13,3 +13,14 @@ t01_02[,2] <- as.numeric(t01_02[,2])
 
 t01_04 <- read.csv2("Ejemplos CSV/1_04.csv", sep= ";")
 t01_04[,2] <- as.numeric(levels(t01_04[,2]))[t01_04[,2]]
+
+dir <- paste(getwd(),"Ejemplos CSV", sep = "/")
+filenames <- list.files(path = dir, pattern = ".csv", full.names = TRUE)
+numfiles <- length(filenames)
+
+All <- lapply(filenames,function(i){
+  read.csv(i, sep = ";")
+})
+filenames <- gsub(dir,"",filenames)
+filenames <- gsub("/","", filenames)
+names(All) <- gsub(".csv","",filenames)

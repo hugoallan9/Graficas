@@ -45,8 +45,7 @@ temaINE <- theme_gray(base_size = fontSize, base_family = "Open Sans Condensed L
   axis.ticks = element_line(colour = NA),
   axis.ticks.x = element_line( size=NULL, color=NA ),
   axis.ticks.y = element_line(size = NULL, color=NA),
-  plot.background = element_rect(fill = "yellow"),
-  panel.background = element_rect(fil = "blue")
+  plot.background = element_rect(fill = NA)
 )
 
 temaBarras <- temaINE
@@ -86,3 +85,6 @@ options(tikzDocumentDeclaration= "\\documentclass[12pt]{book}")
 
 #***********************ALGUNAS VARIABLES UTILES*******************#
 ignorado <- c("Ignorado", "ignorado", "IGNORADO")
+pts2mm <- 0.352777778
+color <- rgb(212,126,41, maxColorValue = 255)
+
