@@ -1,0 +1,158 @@
+% Created by tikzDevice version 0.7.0 on 2014-11-07 16:29:37
+% !TEX encoding = UTF-8 Unicode
+\definecolor[named]{fillColor}{rgb}{1.00,1.00,1.00}
+\path[use as bounding box,fill=fillColor,fill opacity=0.00] (0,0) rectangle (280.41,195.85);
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,195.85);
+\definecolor[named]{drawColor}{rgb}{1.00,1.00,1.00}
+
+\path[draw=drawColor,line width= 0.6pt,line join=round,line cap=round] (  0.00,  0.00) rectangle (280.41,195.85);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,195.85);
+
+\path[] ( 28.02, 25.53) rectangle (280.41,195.85);
+
+\path[] ( 28.02, 56.49) --
+	(280.41, 56.49);
+
+\path[] ( 28.02,102.92) --
+	(280.41,102.92);
+
+\path[] ( 28.02,149.34) --
+	(280.41,149.34);
+
+\path[] ( 28.02,195.77) --
+	(280.41,195.77);
+
+\path[] ( 28.02, 33.27) --
+	(280.41, 33.27);
+
+\path[] ( 28.02, 79.70) --
+	(280.41, 79.70);
+
+\path[] ( 28.02,126.13) --
+	(280.41,126.13);
+
+\path[] ( 28.02,172.56) --
+	(280.41,172.56);
+
+\path[] ( 57.14, 25.53) --
+	( 57.14,195.85);
+
+\path[] (105.68, 25.53) --
+	(105.68,195.85);
+
+\path[] (154.21, 25.53) --
+	(154.21,195.85);
+
+\path[] (202.75, 25.53) --
+	(202.75,195.85);
+
+\path[] (251.29, 25.53) --
+	(251.29,195.85);
+\definecolor[named]{fillColor}{rgb}{0.83,0.49,0.16}
+
+\path[fill=fillColor] ( 42.58, 33.27) rectangle ( 71.70, 48.83);
+
+\path[fill=fillColor] ( 91.12, 33.27) rectangle (120.24, 59.04);
+
+\path[fill=fillColor] (139.65, 33.27) rectangle (168.78,188.11);
+
+\path[fill=fillColor] (188.19, 33.27) rectangle (217.31, 53.93);
+
+\path[fill=fillColor] (236.73, 33.27) rectangle (265.85, 48.83);
+\definecolor[named]{drawColor}{rgb}{0.00,0.00,0.00}
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.85] at (154.21,191.04) {66.7};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.85] at ( 57.14, 51.76) {6.7};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.85] at (105.68, 61.97) {11.1};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.85] at (202.75, 56.86) {8.9};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.85] at (251.29, 51.76) {6.7};
+
+\node[text=drawColor,rotate= 90.00,anchor=base west,inner sep=0pt, outer sep=0pt, scale=  1.42] at (159.09,188.11) {66.7};
+
+\node[text=drawColor,rotate= 90.00,anchor=base west,inner sep=0pt, outer sep=0pt, scale=  1.42] at ( 62.02, 48.83) {6.7};
+
+\node[text=drawColor,rotate= 90.00,anchor=base west,inner sep=0pt, outer sep=0pt, scale=  1.42] at (110.56, 59.04) {11.1};
+
+\node[text=drawColor,rotate= 90.00,anchor=base west,inner sep=0pt, outer sep=0pt, scale=  1.42] at (207.63, 53.93) {8.9};
+
+\node[text=drawColor,rotate= 90.00,anchor=base west,inner sep=0pt, outer sep=0pt, scale=  1.42] at (256.17, 48.83) {6.7};
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,195.85);
+
+\path[] ( 28.02, 25.53) --
+	( 28.02,195.85);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,195.85);
+\definecolor[named]{drawColor}{rgb}{1.00,1.00,1.00}
+
+\node[text=drawColor,text opacity=0.00,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.80] at ( 16.91, 30.52) {0};
+
+\node[text=drawColor,text opacity=0.00,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.80] at ( 16.91, 76.95) {20};
+
+\node[text=drawColor,text opacity=0.00,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.80] at ( 16.91,123.37) {40};
+
+\node[text=drawColor,text opacity=0.00,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.80] at ( 16.91,169.80) {60};
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,195.85);
+
+\path[] ( 23.75, 33.27) --
+	( 28.02, 33.27);
+
+\path[] ( 23.75, 79.70) --
+	( 28.02, 79.70);
+
+\path[] ( 23.75,126.13) --
+	( 28.02,126.13);
+
+\path[] ( 23.75,172.56) --
+	( 28.02,172.56);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,195.85);
+\definecolor[named]{drawColor}{rgb}{0.60,0.60,0.60}
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] ( 28.02, 25.53) --
+	(280.41, 25.53);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,195.85);
+
+\path[] ( 57.14, 21.26) --
+	( 57.14, 25.53);
+
+\path[] (105.68, 21.26) --
+	(105.68, 25.53);
+
+\path[] (154.21, 21.26) --
+	(154.21, 25.53);
+
+\path[] (202.75, 21.26) --
+	(202.75, 25.53);
+
+\path[] (251.29, 21.26) --
+	(251.29, 25.53);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,195.85);
+\definecolor[named]{drawColor}{rgb}{0.00,0.00,0.00}
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.80] at ( 57.14, 12.91) {La propiedad};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.80] at (105.68, 12.91) {Las buenas costumbres};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.80] at (154.21, 12.91) {Las personas};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.80] at (202.75, 12.91) {Orden público};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.80] at (251.29, 12.91) {Otras};
+\end{scope}

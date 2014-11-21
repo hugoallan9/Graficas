@@ -1,0 +1,180 @@
+% Created by tikzDevice version 0.7.0 on 2014-11-20 17:27:02
+% !TEX encoding = UTF-8 Unicode
+\definecolor[named]{fillColor}{rgb}{1.00,1.00,1.00}
+\path[use as bounding box,fill=fillColor,fill opacity=0.00] (0,0) rectangle (280.41,195.85);
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,195.85);
+\definecolor[named]{drawColor}{rgb}{1.00,1.00,1.00}
+
+\path[draw=drawColor,line width= 0.6pt,line join=round,line cap=round] (  0.00,  0.00) rectangle (280.41,195.85);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,195.85);
+
+\path[] ( 11.67, 14.00) rectangle (280.41,188.74);
+
+\path[] ( 11.67, 25.25) --
+	(280.41, 25.25);
+
+\path[] ( 11.67, 70.16) --
+	(280.41, 70.16);
+
+\path[] ( 11.67,115.07) --
+	(280.41,115.07);
+
+\path[] ( 11.67,159.99) --
+	(280.41,159.99);
+
+\path[] ( 54.42, 14.00) --
+	( 54.42,188.74);
+
+\path[] (115.50, 14.00) --
+	(115.50,188.74);
+
+\path[] (176.58, 14.00) --
+	(176.58,188.74);
+
+\path[] (237.65, 14.00) --
+	(237.65,188.74);
+
+\path[] ( 11.67, 47.71) --
+	(280.41, 47.71);
+
+\path[] ( 11.67, 92.62) --
+	(280.41, 92.62);
+
+\path[] ( 11.67,137.53) --
+	(280.41,137.53);
+
+\path[] ( 11.67,182.44) --
+	(280.41,182.44);
+
+\path[] ( 23.88, 14.00) --
+	( 23.88,188.74);
+
+\path[] ( 84.96, 14.00) --
+	( 84.96,188.74);
+
+\path[] (146.04, 14.00) --
+	(146.04,188.74);
+
+\path[] (207.12, 14.00) --
+	(207.12,188.74);
+
+\path[] (268.19, 14.00) --
+	(268.19,188.74);
+\definecolor[named]{drawColor}{rgb}{0.20,0.20,0.20}
+
+\path[draw=drawColor,line width= 1.9pt,line join=round] ( 23.88, 62.94) --
+	( 84.96, 61.11) --
+	(146.04, 58.60) --
+	(207.12,155.36) --
+	(268.19,180.80);
+\definecolor[named]{drawColor}{rgb}{0.00,0.00,0.00}
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.76] at ( 23.88, 66.07) {23,393.0};
+
+\node[text=drawColor,anchor=base west,inner sep=0pt, outer sep=0pt, scale=  0.76] at ( 23.88, 66.07) {        };
+
+\node[text=drawColor,anchor=base west,inner sep=0pt, outer sep=0pt, scale=  0.76] at ( 84.96, 64.24) {22,985.0};
+
+\node[text=drawColor,anchor=base west,inner sep=0pt, outer sep=0pt, scale=  0.76] at (146.04, 61.72) {        };
+
+\node[text=drawColor,anchor=base west,inner sep=0pt, outer sep=0pt, scale=  0.76] at (207.12,158.49) {        };
+
+\node[text=drawColor,anchor=base west,inner sep=0pt, outer sep=0pt, scale=  0.76] at (268.19,183.92) {        };
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.76] at ( 23.88, 53.57) {        };
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.76] at ( 84.96, 51.74) {        };
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.76] at (146.04, 49.23) {22,426.0};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.76] at (207.12,145.99) {        };
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.76] at (268.19,171.42) {        };
+
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.76] at ( 23.73, 59.82) {        };
+
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.76] at ( 84.81, 57.99) {        };
+
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.76] at (145.89, 55.48) {        };
+
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.76] at (200.80,152.24) {43,970.0};
+
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  0.76] at (268.04,177.67) {        };
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.76] at (268.19,183.92) {49,633.0};
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,195.85);
+
+\path[] ( 11.67, 14.00) --
+	( 11.67,188.74);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,195.85);
+\definecolor[named]{drawColor}{rgb}{1.00,1.00,1.00}
+
+\node[text=drawColor,text opacity=0.00,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at ( -7.68, 44.26) {20000};
+
+\node[text=drawColor,text opacity=0.00,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at ( -7.68, 89.17) {30000};
+
+\node[text=drawColor,text opacity=0.00,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at ( -7.68,134.09) {40000};
+
+\node[text=drawColor,text opacity=0.00,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at ( -7.68,179.00) {50000};
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,195.85);
+
+\path[] (  7.40, 47.71) --
+	( 11.67, 47.71);
+
+\path[] (  7.40, 92.62) --
+	( 11.67, 92.62);
+
+\path[] (  7.40,137.53) --
+	( 11.67,137.53);
+
+\path[] (  7.40,182.44) --
+	( 11.67,182.44);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,195.85);
+\definecolor[named]{drawColor}{rgb}{0.60,0.60,0.60}
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] ( 11.67, 14.00) --
+	(280.41, 14.00);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,195.85);
+
+\path[] ( 23.88,  9.73) --
+	( 23.88, 14.00);
+
+\path[] ( 84.96,  9.73) --
+	( 84.96, 14.00);
+
+\path[] (146.04,  9.73) --
+	(146.04, 14.00);
+
+\path[] (207.12,  9.73) --
+	(207.12, 14.00);
+
+\path[] (268.19,  9.73) --
+	(268.19, 14.00);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,195.85);
+\definecolor[named]{drawColor}{rgb}{0.00,0.00,0.00}
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at ( 23.88, -0.00) {2009};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at ( 84.96, -0.00) {2010};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at (146.04, -0.00) {2011};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at (207.12, -0.00) {2012};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at (268.19, -0.00) {2013};
+\end{scope}

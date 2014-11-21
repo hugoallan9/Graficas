@@ -1,0 +1,195 @@
+% Created by tikzDevice version 0.7.0 on 2014-11-10 22:29:41
+% !TEX encoding = UTF-8 Unicode
+\definecolor[named]{fillColor}{rgb}{1.00,1.00,1.00}
+\path[use as bounding box,fill=fillColor,fill opacity=0.00] (0,0) rectangle (280.41,209.58);
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,209.58);
+\definecolor[named]{drawColor}{rgb}{1.00,1.00,1.00}
+\definecolor[named]{fillColor}{rgb}{1.00,1.00,0.00}
+
+\path[draw=drawColor,line width= 0.6pt,line join=round,line cap=round,fill=fillColor] (  0.00,  0.00) rectangle (280.41,209.58);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,209.58);
+
+\path[] (  1.31, 28.11) rectangle (280.41,195.36);
+
+\path[] ( 14.00, 28.11) --
+	( 14.00,195.36);
+
+\path[] ( 35.14, 28.11) --
+	( 35.14,195.36);
+
+\path[] ( 56.28, 28.11) --
+	( 56.28,195.36);
+
+\path[] ( 77.43, 28.11) --
+	( 77.43,195.36);
+
+\path[] ( 98.57, 28.11) --
+	( 98.57,195.36);
+
+\path[] (119.72, 28.11) --
+	(119.72,195.36);
+
+\path[] (140.86, 28.11) --
+	(140.86,195.36);
+
+\path[] (162.00, 28.11) --
+	(162.00,195.36);
+
+\path[] (183.15, 28.11) --
+	(183.15,195.36);
+
+\path[] (204.29, 28.11) --
+	(204.29,195.36);
+
+\path[] (225.43, 28.11) --
+	(225.43,195.36);
+
+\path[] (246.58, 28.11) --
+	(246.58,195.36);
+
+\path[] (267.72, 28.11) --
+	(267.72,195.36);
+\definecolor[named]{fillColor}{rgb}{0.83,0.49,0.16}
+
+\path[fill=fillColor] (  7.65, 28.11) rectangle ( 20.34,155.36);
+
+\path[fill=fillColor] ( 28.80, 28.11) rectangle ( 41.48,166.27);
+
+\path[fill=fillColor] ( 49.94, 28.11) rectangle ( 62.63,195.36);
+
+\path[fill=fillColor] ( 71.08, 28.11) rectangle ( 83.77,173.54);
+
+\path[fill=fillColor] ( 92.23, 28.11) rectangle (104.91,175.36);
+
+\path[fill=fillColor] (113.37, 28.11) rectangle (126.06,173.54);
+
+\path[fill=fillColor] (134.52, 28.11) rectangle (147.20,186.27);
+
+\path[fill=fillColor] (155.66, 28.11) rectangle (168.35,188.09);
+
+\path[fill=fillColor] (176.80, 28.11) rectangle (189.49,189.90);
+
+\path[fill=fillColor] (197.95, 28.11) rectangle (210.63,182.63);
+
+\path[fill=fillColor] (219.09, 28.11) rectangle (231.78,180.81);
+
+\path[fill=fillColor] (240.23, 28.11) rectangle (252.92,191.72);
+\definecolor[named]{fillColor}{rgb}{0.39,0.39,0.39}
+
+\path[fill=fillColor] (261.38, 28.11) rectangle (274.06, 82.65);
+\definecolor[named]{drawColor}{rgb}{0.00,0.00,0.00}
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.71] at ( 14.00,162.25) {7};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.71] at ( 35.14,173.16) {7.6};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.71] at ( 56.28,202.24) {9.2};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.71] at ( 77.43,180.43) {8};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.71] at ( 98.57,182.25) {8.1};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.71] at (119.72,180.43) {8};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.71] at (140.86,193.15) {8.7};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.71] at (162.00,194.97) {8.8};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.71] at (183.15,196.79) {8.9};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.71] at (204.29,189.52) {8.5};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.71] at (225.43,187.70) {8.4};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.71] at (246.58,198.61) {9};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.71] at (267.72, 89.54) {3};
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,209.58);
+
+\path[] (  1.31, 28.11) --
+	(  1.31,195.36);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,209.58);
+\definecolor[named]{drawColor}{rgb}{0.60,0.60,0.60}
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] (  1.31, 28.11) --
+	(280.41, 28.11);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,209.58);
+
+\path[] ( 14.00, 23.85) --
+	( 14.00, 28.11);
+
+\path[] ( 35.14, 23.85) --
+	( 35.14, 28.11);
+
+\path[] ( 56.28, 23.85) --
+	( 56.28, 28.11);
+
+\path[] ( 77.43, 23.85) --
+	( 77.43, 28.11);
+
+\path[] ( 98.57, 23.85) --
+	( 98.57, 28.11);
+
+\path[] (119.72, 23.85) --
+	(119.72, 28.11);
+
+\path[] (140.86, 23.85) --
+	(140.86, 28.11);
+
+\path[] (162.00, 23.85) --
+	(162.00, 28.11);
+
+\path[] (183.15, 23.85) --
+	(183.15, 28.11);
+
+\path[] (204.29, 23.85) --
+	(204.29, 28.11);
+
+\path[] (225.43, 23.85) --
+	(225.43, 28.11);
+
+\path[] (246.58, 23.85) --
+	(246.58, 28.11);
+
+\path[] (267.72, 23.85) --
+	(267.72, 28.11);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,209.58);
+\definecolor[named]{drawColor}{rgb}{0.00,0.00,0.00}
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at ( 14.00, 14.11) {Enero};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at ( 35.14, 14.11) {Febrero};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at ( 56.28, 14.11) {Marzo};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at ( 77.43, 14.11) {Abril};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at ( 98.57, 14.11) {Mayo};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at (119.72, 14.11) {Junio};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at (140.86, 14.11) {Julio};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at (162.00, 14.11) {Agosto};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at (183.15, 14.11) {Septiembre};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at (204.29, 14.11) {Octubre};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at (225.43, 14.11) {Noviembre};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at (246.58, 14.11) {Diciembre};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at (267.72, 14.11) {Ignorado};
+\end{scope}
