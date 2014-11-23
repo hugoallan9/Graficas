@@ -2,28 +2,195 @@
 source("setup.R")
 source("datos.R")
 
-graficaCol <- function(data, color1=rgb(212,126,41, maxColorValue = 255), ancho = 0.6)
+
+
+
+graficaCol <- function(data, color1=color, ancho = 0.6, ordenar = TRUE)
 {
  theme_set(temaColumnas)
  names(data)<- c("x","y")
- data <- data[ordenarNiveles(data),]
+ data <- data[ordenarNiveles(data, ordenar),]
  data$x <- factor(data$x, levels = data$x)
  View(data)
  grafica <- ggplot(data, aes(x, y))
  grafica <- grafica + 
    geom_bar(stat = 'identity',fill = calcularRampa(data, color1), width = ancho, position =  "dodge")+
-   labs(x="",y= "")+
+   labs(x=NULL,y=NULL)+
    scale_y_continuous(breaks=NULL, expand= c(0.0,0.0))
  print(grafica)
  return(grafica)
+}
+
+graficaBar <- function(data, color1=color, ancho = 0.6, ordenar = TRUE)
+{
+  theme_set(temaBarras)
+  names(data)<- c("x","y")
+  data <- data[rev(ordenarNiveles(data, ordenar)),]
+  data$x <- factor(data$x, levels = data$x)
+  View(data)
+  grafica <- ggplot(data, aes(x, y))
+  grafica <- grafica + 
+    geom_bar(stat = 'identity',fill = calcularRampa(data, color1), width = ancho, position =  "dodge")+
+    labs(x=NULL,y=NULL)+
+    scale_y_continuous(breaks=NULL, expand= c(0.0,0.0))+
+    coord_flip()
+  print(grafica)
+  return(grafica)
+}
+
+graficaLinea <- function(data, color1 = color, ancho = 1.7)
+{
+ theme_set(temaColumnas)
+ names(data)<- c("x","y")
+ grafica <- ggplot(data, aes(x,y))
+ grafica <- grafica + geom_line(colour = color1, size = ancho)+
+   labs(x=NULL,y=NULL)
+ #grafica <- etiquetasLineas(grafica, calcularPosiciones(data))
+ return(grafica)
+}
+
+calcularPosiciones <- function(graph)
+{
+  #SIMBOLOGIA
+  # 1 HACIA ARRIBA
+  #-1 HACIA ABAJO
+  #0.5 A LA DERECHA
+  #-0.5 A LA IZQUIERDA
+  data <- ggplot_build(graph)$data[[1]]
+  print(data)
+  posiciones <- NULL
+  if(data$y[[1]] < data$y[[2]])
+  {
+    posiciones <- c(posiciones, -1)
+  }
+  else{
+    posiciones <- c(posiciones, 1)  
+  }
+  
+  
+  for(i in 2:(length(data$y)-1))
+  {
+    if(data$y[[i-1]] == data$y[[i]])
+    {
+      if(data$y[[i+1]] > data$y[[i]])
+      {
+        posiciones <- c(posiciones, -1)
+      }else if(data$y[[i+1]] == data$y[[i]])
+      {
+        posiciones <- c(posiciones, 1)
+      }else if(data$y[[i+1]] < data$y[[i]]){
+        posiciones <- c(posiciones, 1)
+      }
+    }else if(data$y[[i-1]] > data$y[[i]])
+    {
+      if(data$y[[i]] > data$y[[i+1]])
+      {
+        posiciones <- c(posiciones, 0.5)
+      }
+      else{
+        posiciones <- c(posiciones, -1)
+      }
+    }else
+    {
+      if(data$y[[i]] < data$y[[i+1]])
+      {
+        posiciones <- c(posiciones, -0.5)
+      }
+      else
+      {
+        posiciones <- c(posiciones, 1)
+      }
+    }
+  }
+  if(data$y[[length(data$y)]] == data$y[[length(data$y)-1]])
+  {
+    posiciones <- c(posiciones, 1)
+  }else if(data$y[[length(data$y)]] < data$y[[length(data$y)-1]])
+  {
+    posiciones <- c(posiciones, -1)
+  }else
+  {
+    posiciones <- c(posiciones, 1)
+  }
+  print(posiciones)
+  return(posiciones)
+}
+
+
+etiquetasLineas <- function(graph, posiciones)
+{
+  d <- ggplot_build(graph)$data[[1]]
+  for(i in 1:length(posiciones))
+  {
+    dato <- d$y[[i]]
+    cat(c("El dato es: ", dato, "\n"))
+    print(i)
+    d$etiqueta <- completarEtiquetas(dato,i)
+    print(d)
+    if(posiciones[[i]] == 1)
+    {
+      graph <- graph + geom_text(data = d, aes(label=etiqueta,family="Open Sans Condensed Light"),size=3.2,hjust = 0.5, vjust = -0.5)
+    }else if(posiciones[[i]] == -1)
+    {
+      graph <- graph + geom_text(data = d,aes(label=etiqueta,family="Open Sans Condensed Light"),size=3.2,hjust = 0.5, vjust = 1.5)
+    }else if(posiciones[[i]] == 0.5)
+    {
+      graph <- graph + geom_text(data =d,aes(label=etiqueta,family="Open Sans Condensed Light"),size=3.2,hjust = 0, vjust = -0.5)
+    }
+    else
+    {
+      graph <- graph + geom_text(data = d,aes(label=etiqueta,family="Open Sans Condensed Light"),size=3.2,hjust = 1.5, vjust = 0.5)
+    }
+  }
+  return(graph)
+}
+
+completarEtiquetas <- function(dato,posicion, tam = 5)
+{
+  #cat(c("la posicion es: ", posicion))
+  #cat(c("el dato es: ", dato))
+  etiquetas <- NULL
+  for(i in 1:tam)
+  {
+    if(i == posicion)
+    {
+      print("Entre al if")
+      etiquetas <- c(etiquetas, dato)
+    }
+    else
+    {
+      print("Entre al else")
+      etiquetas <- c(etiquetas,"")  
+    }
+  }
+  return(etiquetas)
+}
+
+rotarEtiX <- function(graph)
+{
+  longitud <- 2.5 +2.5
+  graph <- graph + theme(axis.text.x = element_text(angle = 90, vjust =0.5 , hjust= 1))+
+    theme(plot.margin = unit(c(longitud,0,0,0), "mm"))
+
+}
+
+etiquetasBarras <- function(graph)
+{
+  max <-ggplot_build(graph)$panel$ranges[[1]]$y.range[2] 
+  max <- nchar(as.character(max))
+  longitud <- 1.2*max +2.5
+  print(max)
+  graph <- graph +
+    geom_text(aes(family = "Open Sans Condensed Light",label= y), size=3, hjust=-0.5, vjust = 0.5)+
+    theme(plot.margin = unit(c(longitud,0,0,0), "mm"))
 }
 
 etiquetasHorizontales <- function(graph)
 {
   longitud <- 2.5 +2.5
   graph <- graph +
-    geom_text(aes(family = "Open Sans Condensed Light",label= prettyNum(y, big.mark = ",")),size=3, hjust=0.5, vjust = -1)+
-    theme(plot.margin = unit(c(longitud,0,0,-7), "mm"))
+    geom_text(aes(family = "Open Sans Condensed Light",label= prettyNum(y,digits = 1,big.mark = ",")),size=3, hjust=0.5, vjust = -0.5)+
+    theme(plot.margin = unit(c(longitud,0,0,0), "mm"))
 }
 
 etiquetasVerticales <- function(graph)
@@ -33,8 +200,8 @@ etiquetasVerticales <- function(graph)
   longitud <- 1.2*max +2.5
   print(max)
   graph <- graph +
-    geom_text(aes(family = "Open Sans Condensed Light",label= y), angle = 90, size=3, hjust=-0.5, vjust = 0.5)+
-    theme(plot.margin = unit(c(longitud,0,0,-7), "mm"))
+    geom_text(aes(family = "Open Sans Condensed Light",label= prettyNum(y, big.mark = ",")), angle = 90, size=3, hjust=-0.5, vjust = 0.5)+
+    theme(plot.margin = unit(c(longitud,0,0,0), "mm"))
 }
 
 exportarLatex <- function(nombre = grafica, graph)
@@ -61,7 +228,9 @@ preview <- function(graph)
 {
   nombre = tempfile(pattern="Preview", tmpdir= paste(normalizePath(getwd()),"Temporal", sep="\\"))
   tikz(paste(nombre,".tex", sep= ""), standAlone = TRUE, bareBones = FALSE, width = 3.88, height= 2.74, sanitize= TRUE)
-  print(graph)
+  temp<- ggplot_gtable(ggplot_build(graph))
+  temp$layout$clip[temp$layout$name=="panel"] <- "off"
+  grid.draw(temp)
   dev.off()
   nombreTex = paste(nombre,".tex",sep="")
   shell(cmd=paste("iconv -f ISO-8859-1 -t UTF-8 <",nombreTex ,">", paste(dirname(nombre),"/temp",sep="")), mustWork=TRUE, intern=TRUE, translate=TRUE)
@@ -88,13 +257,24 @@ calcularRampa <- function(data, color1)
   return(rampa)
 }
 
-ordenarNiveles <- function(data)
+ordenarNiveles <- function(data, ordenar = TRUE)
 {
   nuevoOrden <- NULL
   ignNombre <- NULL
   ign = 0
-  orden <- order(-data$y)
-  for(elemento in orden)
+  orden <- NULL
+  print(ordenar)
+  if(ordenar)
+  {
+    orden <- order(-data$y)
+    
+  }
+  else
+  {
+    for(i in (1:length(data$x)))
+      orden <- c(orden,i)
+  }
+    for(elemento in orden)
   {
     if( data[elemento,]$x %in% ignorado)
     {
@@ -111,4 +291,24 @@ ordenarNiveles <- function(data)
   }
   print(nuevoOrden)
   return(nuevoOrden)
+}
+
+existeTraslape <- function(graph,ancho = 0.6)
+{
+  ejeX <- 99.1 *0.0393700787
+  etiquetas <- ggplot_build(graph)$panel$ranges[[1]]$x.labels
+  tam <- list()
+  for(i in 1:length(etiquetas))
+  {
+    tam[i] <- getLatexStrWidth(etiquetas[[i]], cex = ancho)   
+  }
+  lapply(tam, pt2mm)
+  nuBarras <- length(etiquetas)
+  semiEspacio <- 99.1/(2*nuBarras)
+  
+}
+
+pt2mm <- function(unidad)
+{
+  return (unidad*pts2mm)
 }

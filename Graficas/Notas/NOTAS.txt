@@ -1,3 +1,0 @@
-#************************DATOS***********************************************************#
-LOS DATOS NO DEBEN LLEVAR LA COMA, ESA SE PONE LUEGO EN R
-
