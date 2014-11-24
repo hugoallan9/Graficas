@@ -11,11 +11,10 @@ graficaCol <- function(data, color1=color, ancho = 0.6, ordenar = TRUE)
  names(data)<- c("x","y")
  data <- data[ordenarNiveles(data, ordenar),]
  data$x <- factor(data$x, levels = data$x)
- View(data)
  grafica <- ggplot(data, aes(x, y))
  grafica <- grafica + 
    geom_bar(stat = 'identity',fill = calcularRampa(data, color1), width = ancho, position =  "dodge")+
-   labs(x=NULL,y=NULL)+
+   labs(x="",y="")+
    scale_y_continuous(breaks=NULL, expand= c(0.0,0.0))
  print(grafica)
  return(grafica)
@@ -25,27 +24,31 @@ graficaBar <- function(data, color1=color, ancho = 0.6, ordenar = TRUE)
 {
   theme_set(temaBarras)
   names(data)<- c("x","y")
-  data <- data[rev(ordenarNiveles(data, ordenar)),]
+  data <- data[rev(ordenarNiveles(-data, ordenar)),]
   data$x <- factor(data$x, levels = data$x)
-  View(data)
   grafica <- ggplot(data, aes(x, y))
   grafica <- grafica + 
     geom_bar(stat = 'identity',fill = calcularRampa(data, color1), width = ancho, position =  "dodge")+
-    labs(x=NULL,y=NULL)+
+    labs(x="",y="")+
     scale_y_continuous(breaks=NULL, expand= c(0.0,0.0))+
     coord_flip()
   print(grafica)
   return(grafica)
 }
 
-graficaLinea <- function(data, color1 = color, ancho = 1.7)
+graficaLinea <- function(data, color1 = color, inicio = 0, ancho = 1.7)
 {
  theme_set(temaColumnas)
  names(data)<- c("x","y")
  grafica <- ggplot(data, aes(x,y))
  grafica <- grafica + geom_line(colour = color1, size = ancho)+
-   labs(x=NULL,y=NULL)
- #grafica <- etiquetasLineas(grafica, calcularPosiciones(data))
+ labs(x=NULL,y=NULL)
+ grafica <- etiquetasLineas(grafica, calcularPosiciones(grafica))
+ minimo <- min(ggplot_build(grafica)$data[[1]]$y)
+ maximo <- max(ggplot_build(grafica)$data[[1]]$y)
+ limite <- minimo - 0.3*(maximo - minimo)
+ grafica <- grafica + scale_y_continuous(limits = c(limite,NA))+
+   theme(plot.margin = unit(c(2.5,3,0,-10), "mm"))
  return(grafica)
 }
 
@@ -123,23 +126,24 @@ etiquetasLineas <- function(graph, posiciones)
   for(i in 1:length(posiciones))
   {
     dato <- d$y[[i]]
-    cat(c("El dato es: ", dato, "\n"))
+    cat(c("El dato es jojo : ", dato, "\n"))
     print(i)
-    d$etiqueta <- completarEtiquetas(dato,i)
+    print(length(d$etiqueta))
+    d$etiqueta <- as.numeric(completarEtiquetas(dato,i,tam = length(d$x)))
     print(d)
     if(posiciones[[i]] == 1)
     {
-      graph <- graph + geom_text(data = d, aes(label=etiqueta,family="Open Sans Condensed Light"),size=3.2,hjust = 0.5, vjust = -0.5)
+      graph <- graph + geom_text(data = d, aes(label=ifelse(is.na(etiqueta),"",formatC(etiqueta,format = "f",big.mark = ",", digits = 1)),family="Open Sans Condensed Light"),size=3.2,hjust = 0.5, vjust = -0.5)
     }else if(posiciones[[i]] == -1)
     {
-      graph <- graph + geom_text(data = d,aes(label=etiqueta,family="Open Sans Condensed Light"),size=3.2,hjust = 0.5, vjust = 1.5)
+      graph <- graph + geom_text(data = d,aes(label=ifelse(is.na(etiqueta),"",formatC(etiqueta,format = "f",big.mark = ",", digits = 1)),family="Open Sans Condensed Light"),size=3.2,hjust = 0.5, vjust = 1.5)
     }else if(posiciones[[i]] == 0.5)
     {
-      graph <- graph + geom_text(data =d,aes(label=etiqueta,family="Open Sans Condensed Light"),size=3.2,hjust = 0, vjust = -0.5)
+      graph <- graph + geom_text(data =d,aes(label=ifelse(is.na(etiqueta),"",formatC(etiqueta,format = "f",big.mark = ",", digits = 1)),family="Open Sans Condensed Light"),size=3.2,hjust = 0, vjust = -0.5)
     }
     else
     {
-      graph <- graph + geom_text(data = d,aes(label=etiqueta,family="Open Sans Condensed Light"),size=3.2,hjust = 1.5, vjust = 0.5)
+      graph <- graph + geom_text(data = d,aes(label=ifelse(is.na(etiqueta),"",formatC(etiqueta,format = "f",big.mark = ",", digits = 1)),family="Open Sans Condensed Light"),size=3.2,hjust = 1.2, vjust = 0)
     }
   }
   return(graph)
@@ -170,7 +174,7 @@ rotarEtiX <- function(graph)
 {
   longitud <- 2.5 +2.5
   graph <- graph + theme(axis.text.x = element_text(angle = 90, vjust =0.5 , hjust= 1))+
-    theme(plot.margin = unit(c(longitud,0,0,0), "mm"))
+    theme(plot.margin = unit(c(longitud,0,abajo,izquierdo), "mm"))
 
 }
 
@@ -182,15 +186,15 @@ etiquetasBarras <- function(graph)
   print(max)
   graph <- graph +
     geom_text(aes(family = "Open Sans Condensed Light",label= y), size=3, hjust=-0.5, vjust = 0.5)+
-    theme(plot.margin = unit(c(longitud,0,0,0), "mm"))
+    theme(plot.margin = unit(c(0,longitud,0,-8), "mm"))
 }
 
 etiquetasHorizontales <- function(graph)
 {
   longitud <- 2.5 +2.5
   graph <- graph +
-    geom_text(aes(family = "Open Sans Condensed Light",label= prettyNum(y,digits = 1,big.mark = ",")),size=3, hjust=0.5, vjust = -0.5)+
-    theme(plot.margin = unit(c(longitud,0,0,0), "mm"))
+    geom_text(aes(family = "Open Sans Condensed Light",label= formatC(y,format = "f",digits = 1,big.mark = ",")),size=3, hjust=0.5, vjust = -0.5)+
+    theme(plot.margin = unit(c(longitud,0,0,izquierdo), "mm"))
 }
 
 etiquetasVerticales <- function(graph)
@@ -200,8 +204,8 @@ etiquetasVerticales <- function(graph)
   longitud <- 1.2*max +2.5
   print(max)
   graph <- graph +
-    geom_text(aes(family = "Open Sans Condensed Light",label= prettyNum(y, big.mark = ",")), angle = 90, size=3, hjust=-0.5, vjust = 0.5)+
-    theme(plot.margin = unit(c(longitud,0,0,0), "mm"))
+    geom_text(aes(family = "Open Sans Condensed Light",label= formatC(y, big.mark = ",", format = "f", digits =1)), angle = 90, size=3, hjust=-0.5, vjust = 0.5)+
+    theme(plot.margin = unit(c(longitud,0,0,izquierdo), "mm"))
 }
 
 exportarLatex <- function(nombre = grafica, graph)
@@ -210,13 +214,13 @@ exportarLatex <- function(nombre = grafica, graph)
   #print(gy)
   #graph = graph + scale_y_continuous(expand=c(0,0),limits=c(0,gy))
   #print(graph)
-  tikz(nombre, standAlone = FALSE, bareBones = TRUE, width=3.88, height=2.90, sanitize = TRUE)
+  tikz(nombre, standAlone = FALSE, bareBones = TRUE, width=3.88, height=2.70, sanitize = TRUE)
   temp<- ggplot_gtable(ggplot_build(graph))
   temp$layout$clip[temp$layout$name=="panel"] <- "off"
   grid.draw(temp)
   dev.off()
   shell(cmd=paste("iconv -f ISO-8859-1 -t UTF-8 <", nombre,">", paste(dirname(nombre),"/temp",sep="")), mustWork=TRUE, intern=TRUE, translate=TRUE)
-  file.copy(from = paste(dirname(nombre), "/temp",sep=""), to=paste(dirname(nombre),"Latex",basename(nombre),sep="/"), overwrite = TRUE)
+  file.copy(from = paste(dirname(nombre), "/temp",sep=""), to=paste(dirname(nombre),"Generacion",basename(nombre),sep="/"), overwrite = TRUE)
 }
 
 compilar <- function(ruta = paste(getwd(), "Latex/ENEI.tex",sep="/")){
@@ -227,7 +231,7 @@ compilar <- function(ruta = paste(getwd(), "Latex/ENEI.tex",sep="/")){
 preview <- function(graph)
 {
   nombre = tempfile(pattern="Preview", tmpdir= paste(normalizePath(getwd()),"Temporal", sep="\\"))
-  tikz(paste(nombre,".tex", sep= ""), standAlone = TRUE, bareBones = FALSE, width = 3.88, height= 2.74, sanitize= TRUE)
+  tikz(paste(nombre,".tex", sep= ""), standAlone = TRUE, bareBones = FALSE, width = 3.88, height= 2.70, sanitize= TRUE)
   temp<- ggplot_gtable(ggplot_build(graph))
   temp$layout$clip[temp$layout$name=="panel"] <- "off"
   grid.draw(temp)

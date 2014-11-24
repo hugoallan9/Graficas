@@ -84,7 +84,9 @@ options(tikzDocumentDeclaration= "\\documentclass[12pt]{book}")
 
 
 #***********************ALGUNAS VARIABLES UTILES*******************#
-ignorado <- c("Ignorado", "ignorado", "IGNORADO")
+ignorado <- c("Ignorado", "ignorado", "IGNORADO", "otros", "Otro", "Otros", "OTROS")
 pts2mm <- 0.352777778
-color <- rgb(212,126,41, maxColorValue = 255)
+color <- rgb(0.7254901960784314,0.4431372549019608,0.6235294117647059, maxColorValue = 1)
+izquierdo <- -5
+abajo <- -8
 

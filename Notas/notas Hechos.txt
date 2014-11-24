@@ -1,0 +1,2 @@
+Areglar el macro para la  2_23 ya que copié el de 2_22
+Lo mismo para  7_05
