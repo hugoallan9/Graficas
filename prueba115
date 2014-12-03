@@ -1,0 +1,121 @@
+% Created by tikzDevice version 0.7.0 on 2014-11-15 18:30:53
+% !TEX encoding = UTF-8 Unicode
+\definecolor[named]{fillColor}{rgb}{1.00,1.00,1.00}
+\path[use as bounding box,fill=fillColor,fill opacity=0.00] (0,0) rectangle (280.41,209.58);
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,209.58);
+\definecolor[named]{drawColor}{rgb}{1.00,1.00,1.00}
+
+\path[draw=drawColor,line width= 0.6pt,line join=round,line cap=round] (  0.00,  0.00) rectangle (280.41,209.58);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,209.58);
+
+\path[] (  1.31, 28.11) rectangle (280.41,195.36);
+
+\path[] ( 24.57, 28.11) --
+	( 24.57,195.36);
+
+\path[] ( 63.33, 28.11) --
+	( 63.33,195.36);
+
+\path[] (102.10, 28.11) --
+	(102.10,195.36);
+
+\path[] (140.86, 28.11) --
+	(140.86,195.36);
+
+\path[] (179.62, 28.11) --
+	(179.62,195.36);
+
+\path[] (218.39, 28.11) --
+	(218.39,195.36);
+
+\path[] (257.15, 28.11) --
+	(257.15,195.36);
+\definecolor[named]{fillColor}{rgb}{0.83,0.49,0.16}
+
+\path[fill=fillColor] ( 12.94, 28.11) rectangle ( 36.20,143.70);
+
+\path[fill=fillColor] ( 51.70, 28.11) rectangle ( 74.96,134.94);
+
+\path[fill=fillColor] ( 90.47, 28.11) rectangle (113.72,141.94);
+
+\path[fill=fillColor] (129.23, 28.11) rectangle (152.49,141.94);
+
+\path[fill=fillColor] (167.99, 28.11) rectangle (191.25,146.32);
+
+\path[fill=fillColor] (206.76, 28.11) rectangle (230.02,168.21);
+
+\path[fill=fillColor] (245.52, 28.11) rectangle (268.78,195.36);
+\definecolor[named]{drawColor}{rgb}{0.00,0.00,0.00}
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.71] at ( 24.57,146.62) {13};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.71] at ( 63.33,137.87) {12};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.71] at (102.10,144.87) {13};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.71] at (140.86,144.87) {13};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.71] at (179.62,149.25) {14};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.71] at (218.39,171.14) {16};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.71] at (257.15,198.29) {19};
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,209.58);
+
+\path[] (  1.31, 28.11) --
+	(  1.31,195.36);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,209.58);
+\definecolor[named]{drawColor}{rgb}{0.60,0.60,0.60}
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] (  1.31, 28.11) --
+	(280.41, 28.11);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,209.58);
+
+\path[] ( 24.57, 23.85) --
+	( 24.57, 28.11);
+
+\path[] ( 63.33, 23.85) --
+	( 63.33, 28.11);
+
+\path[] (102.10, 23.85) --
+	(102.10, 28.11);
+
+\path[] (140.86, 23.85) --
+	(140.86, 28.11);
+
+\path[] (179.62, 23.85) --
+	(179.62, 28.11);
+
+\path[] (218.39, 23.85) --
+	(218.39, 28.11);
+
+\path[] (257.15, 23.85) --
+	(257.15, 28.11);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (280.41,209.58);
+\definecolor[named]{drawColor}{rgb}{0.00,0.00,0.00}
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at ( 24.57, 14.11) {Lunes};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at ( 63.33, 14.11) {MartesHola};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at (102.10, 14.11) {Miercoles1235};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at (140.86, 14.11) {Jueves};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at (179.62, 14.11) {Viernes};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at (218.39, 14.11) {Sabado};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.83] at (257.15, 14.11) {Domingo};
+\end{scope}

@@ -24,7 +24,7 @@ graficaBar <- function(data, color1=color, ancho = 0.6, ordenar = TRUE)
 {
   theme_set(temaBarras)
   names(data)<- c("x","y")
-  data <- data[rev(ordenarNiveles(-data, ordenar)),]
+  data <- data[rev(ordenarNiveles(data, ordenar)),]
   data$x <- factor(data$x, levels = data$x)
   grafica <- ggplot(data, aes(x, y))
   grafica <- grafica + 
@@ -48,7 +48,7 @@ graficaLinea <- function(data, color1 = color, inicio = 0, ancho = 1.7)
  maximo <- max(ggplot_build(grafica)$data[[1]]$y)
  limite <- minimo - 0.3*(maximo - minimo)
  grafica <- grafica + scale_y_continuous(limits = c(limite,NA))+
-   theme(plot.margin = unit(c(2.5,3,0,-10), "mm"))
+   theme(plot.margin = unit(c(2.5,3,0,-7), "mm"))
  return(grafica)
 }
 
@@ -133,17 +133,17 @@ etiquetasLineas <- function(graph, posiciones)
     print(d)
     if(posiciones[[i]] == 1)
     {
-      graph <- graph + geom_text(data = d, aes(label=ifelse(is.na(etiqueta),"",formatC(etiqueta,format = "f",big.mark = ",", digits = 1)),family="Open Sans Condensed Light"),size=3.2,hjust = 0.5, vjust = -0.5)
+      graph <- graph + geom_text(data = d, aes(label=ifelse(is.na(etiqueta),"",formatC(etiqueta,format = "f",big.mark = ",", digits = 1, drop0trailing = T)),family="Open Sans Condensed Light"),size=3.2,hjust = 0.5, vjust = -0.5)
     }else if(posiciones[[i]] == -1)
     {
-      graph <- graph + geom_text(data = d,aes(label=ifelse(is.na(etiqueta),"",formatC(etiqueta,format = "f",big.mark = ",", digits = 1)),family="Open Sans Condensed Light"),size=3.2,hjust = 0.5, vjust = 1.5)
+      graph <- graph + geom_text(data = d,aes(label=ifelse(is.na(etiqueta),"",formatC(etiqueta,format = "f",big.mark = ",", digits = 1, drop0trailing = T)),family="Open Sans Condensed Light"),size=3.2,hjust = 0.5, vjust = 1.5)
     }else if(posiciones[[i]] == 0.5)
     {
-      graph <- graph + geom_text(data =d,aes(label=ifelse(is.na(etiqueta),"",formatC(etiqueta,format = "f",big.mark = ",", digits = 1)),family="Open Sans Condensed Light"),size=3.2,hjust = 0, vjust = -0.5)
+      graph <- graph + geom_text(data =d,aes(label=ifelse(is.na(etiqueta),"",formatC(etiqueta,format = "f",big.mark = ",", digits = 1, drop0trailing = T)),family="Open Sans Condensed Light"),size=3.2,hjust = 0, vjust = -0.5)
     }
     else
     {
-      graph <- graph + geom_text(data = d,aes(label=ifelse(is.na(etiqueta),"",formatC(etiqueta,format = "f",big.mark = ",", digits = 1)),family="Open Sans Condensed Light"),size=3.2,hjust = 1.2, vjust = 0)
+      graph <- graph + geom_text(data = d,aes(label=ifelse(is.na(etiqueta),"",formatC(etiqueta,format = "f",big.mark = ",", digits = 1, drop0trailing = T)),family="Open Sans Condensed Light"),size=3.2,hjust = 1.2, vjust = 0)
     }
   }
   return(graph)
@@ -182,11 +182,11 @@ etiquetasBarras <- function(graph)
 {
   max <-ggplot_build(graph)$panel$ranges[[1]]$y.range[2] 
   max <- nchar(as.character(max))
-  longitud <- 1.2*max +2.5
+  longitud <- 1.2*max +3.3
   print(max)
   graph <- graph +
     geom_text(aes(family = "Open Sans Condensed Light",label= y), size=3, hjust=-0.5, vjust = 0.5)+
-    theme(plot.margin = unit(c(0,longitud,0,-8), "mm"))
+    theme(plot.margin = unit(c(0,longitud,-8,-8), "mm"))
 }
 
 etiquetasHorizontales <- function(graph)
@@ -219,8 +219,8 @@ exportarLatex <- function(nombre = grafica, graph)
   temp$layout$clip[temp$layout$name=="panel"] <- "off"
   grid.draw(temp)
   dev.off()
-  shell(cmd=paste("iconv -f ISO-8859-1 -t UTF-8 <", nombre,">", paste(dirname(nombre),"/temp",sep="")), mustWork=TRUE, intern=TRUE, translate=TRUE)
-  file.copy(from = paste(dirname(nombre), "/temp",sep=""), to=paste(dirname(nombre),"Generacion",basename(nombre),sep="/"), overwrite = TRUE)
+  #shell(cmd=paste("iconv -f ISO-8859-1 -t UTF-8 <", nombre,">", paste(dirname(nombre),"/temp",sep="")), mustWork=TRUE, intern=TRUE, translate=TRUE)
+  #file.copy(from = paste(dirname(nombre), "/temp",sep=""), to=paste(dirname(nombre),"Generacion",basename(nombre),sep="/"), overwrite = TRUE)
 }
 
 compilar <- function(ruta = paste(getwd(), "Latex/ENEI.tex",sep="/")){
@@ -253,11 +253,16 @@ calcularRampa <- function(data, color1)
     {
       rampa = c(rampa,gris)
     }
+    else if(elemento %in% repu)
+    {
+      rampa = c(rampa, color2)
+    }
     else
     {
       rampa = c(rampa,color1)
     }
   }
+  print(rampa)
   return(rampa)
 }
 
@@ -270,7 +275,7 @@ ordenarNiveles <- function(data, ordenar = TRUE)
   print(ordenar)
   if(ordenar)
   {
-    orden <- order(-data$y)
+    orden <- order(data$y, decreasing = TRUE)
     
   }
   else

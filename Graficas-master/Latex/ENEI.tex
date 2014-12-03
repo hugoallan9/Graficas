@@ -1,0 +1,1003 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass[12pt,letterpaper,twoside]{book}
+
+%\usepackage[utf8]{inputenc}  %Para compilar en PdfLaTeX
+
+
+%Recordatorio de relleno
+
+	%macro del capítulo
+	%\INEchapter{TÍTULO: SUBTÍTULO (para índice)}{TÍTULO:}{SUBTÍTULO}{Descripción}
+	%Hoja
+	
+	%caja de media hoja
+	%\cajita{Título}{Descripción}{Subtítulo}{Desagregación}{Gráfica}{Fuente}{\notita{Nota}}
+	
+	%caja de hoja completa
+	%\cajota{Título}{Descripción}{Subtítulo}{Desagregación}{Gráfica}{Fuente}{\notita{Nota}}
+
+
+
+%Paquetes estándar
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{setspace} 
+\usepackage{xltxtra}
+
+
+%Tablas de Excel convertidas a LaTeX
+\usepackage{booktabs}
+\usepackage{multirow}
+\newcounter{Cuadro}[chapter]
+\renewcommand{\theCuadro}{\thechapter.\arabic{Cuadro}}
+
+
+%Columnas definibles en ancho
+\usepackage{array}
+	\newcolumntype{x}[1]{%
+	>{\centering\arraybackslash}p{#1}}%
+	
+	\newcolumntype{g}[1]{%
+	>{\raggedleft\arraybackslash}p{#1}}%
+
+
+\usepackage[input-decimal-markers={.}, input-ignore={,}, group-separator={,}]{siunitx}
+
+
+%Para pruebas
+\usepackage{lipsum}
+\newcommand{\comop}{}
+\newcommand{\comcl}{}
+\newcommand{\guiop}{}
+\newcommand{\guicl}{}
+\newcommand{\apartado}[1]{\addtocounter{section}{1}
+{\noindent\Bold\Large\color{color1!80!black}\thesection $\,-$ #1}\\[1mm]}
+
+
+%Para compilar en XeLaTeX con tildes
+\usepackage{polyglossia}
+	\setmainlanguage{spanish}
+
+%Tipo de letra
+\usepackage{fontspec}
+	\setmainfont[
+		BoldFont = OpenSans-CondBold.ttf ,
+		ItalicFont = texgyrepagella-italic.otf ,
+		BoldItalicFont = OpenSans-CondLightItalic.ttf ]{OpenSans-CondLight.ttf}
+	\newfontfamily\Bold{Open Sans Condensed Bold}
+	
+	\newfontfamily\Sans{Open Sans}
+	\newfontfamily\Italic{Open Sans Condensed Light Italic}
+	\newfontfamily\Logos{Latin Modern Roman}
+	
+
+
+%Diseño global del documento
+\usepackage[width=217mm, height=279mm, left=22.60mm, right=13.56mm, top=26.43mm, bottom=27.86mm]{geometry}
+	\setlength{\headsep}{0pt}
+	\setlength{\footskip}{46pt}
+	\setlength{\parindent}{2em}		%sangría
+	\setlength{\parskip}{2ex}		%separación entre párrafos  
+	
+\newcommand{\swapgeometry}{\clearpage
+\newgeometry{left=28.60mm, right=21.56mm, top=24.43mm, bottom=27.86mm}
+\setlength{\footskip}{26pt}}
+
+	%Distancias
+		\newlength{\distx} 
+		\setlength{\distx}{4.48mm}
+		\newlength{\disty} 
+		\setlength{\disty}{5.75mm}
+
+
+
+%Tabla de contenidos y vinculaciones
+\usepackage{tocloft}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+
+	%Formato de tabla de contenidos
+	\setlength{\cftbeforetoctitleskip}{0em}
+	\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{empty}}} 
+
+	\makeatletter
+		\renewcommand*\l@subsection{\@dottedtocline{2}{5.2em}{3.2em}}
+	\makeatother
+	
+	\renewcommand{\thesection}{\thechapter.\arabic{section}}
+	
+	\cftsetpnumwidth{2\distx}
+	\cftsetrmarg{8\distx}
+	\renewcommand{\cftsecnumwidth}{2.0\distx}
+	\renewcommand{\cftchapnumwidth}{2\distx}
+	\renewcommand{\cftsecindent}{2\distx}
+
+
+
+% Elementos geométricos de diseño del cuerpo (cajas de colores, etc.)
+\usepackage{colortbl}
+
+
+%\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+
+	%Cambios de márgenes y según paridad de hojas
+		\usepackage[strict]{changepage}
+			\strictpagecheck
+
+	%Colores base del documento
+		\definecolor{color1}{rgb}{0.82,0.49,0.1568}
+		\definecolor{color2}{rgb}{0.48235,0.607843,0.219607843}
+
+
+	%Para que las páginas en blanco no estén numeradas
+		\let\origdoublepage\cleardoublepage
+		\newcommand{\clearemptydoublepage}{
+  		\clearpage
+  		{\pagestyle{empty}\origdoublepage}}
+		\let\cleardoublepage\clearemptydoublepage
+		
+	%Llamadas hacia notas
+		\newcommand{\llamada}{*}
+		
+	%tablas
+		\setlength{\arrayrulewidth}{1.0pt}
+		\arrayrulecolor{color1!80!black}
+		
+		%Columnas centradas definibles en ancho
+		\newcolumntype{x}[1]{%
+		>{\centering\arraybackslash}p{#1}}%
+
+
+
+% Tcolorbox
+\usepackage[skins, breakable, hooks]{tcolorbox}
+
+
+\newtcolorbox{tocbox}{skin=enhancedmiddle, width=39\distx, nobeforeafter, boxrule=0pt, colframe=white, left=0\distx, enlarge left by = 4\distx, enlarge right by=2\distx, bottom=0pt, top=0pt, right=0\distx, left=0\distx, arc=0pt, colback= white, breakable,check odd page,toggle left and right}
+
+\newtcolorbox{fondo}{width=40\distx, height=39\disty, nobeforeafter, boxrule=0pt, colframe=white, left=0pt, bottom=0pt, top=0pt, right=0pt, arc=0pt, colback= white}
+
+\newtcolorbox{bloque-media}{width=40\distx, height=19\disty, enlarge top by=-3pt, enlarge left by=-3pt, enlarge bottom by=1.4\disty, nobeforeafter, colframe=white, colback=white, left=0pt, right=0pt, bottom= 0pt, top=0pt, arc=0pt, boxrule=0pt}
+
+\newtcolorbox{bloque-una}{width=40\distx, height=1\disty, enlarge top by=-3pt, enlarge left by=-3pt, enlarge bottom by=1.4\disty, nobeforeafter, colframe=white, colback=white, left=0pt, right=0pt, bottom= 0pt, top=0pt, arc=0pt, boxrule=0pt}
+
+\newtcolorbox{descripcion}{width=10.5\distx, height=15.9\disty, enlarge bottom by=0\disty, enlarge top by=-3pt, enlarge left by=-3pt, nobeforeafter, boxrule=3pt, colback=color1!8!white, colframe=color1!8!white, left=5pt, right=5pt, top=4pt,bottom=4pt}
+
+\newtcolorbox{descripcion-una}{width=33.3\distx, height=6.2\disty, enlarge bottom by=1\disty, enlarge top by=-5pt, enlarge left by=-3pt, nobeforeafter, boxrule=3pt, colback=color1!8!white, colframe=color1!8!white, left=5pt, right=5pt, top=3pt,bottom=4pt}
+
+\newtcolorbox{notita-impar}{width=5.9\distx, enlarge bottom by=0\disty, enlarge top by=1\disty, enlarge left by=0.1\distx, nobeforeafter, boxrule=0pt, colback=white, colframe=color2!40!white, left=3pt, right=1pt, top=2pt,bottom=2pt, leftrule=0.6pt, rightrule=0pt,toprule=0pt,bottomrule=0pt, arc=0pt}
+
+\newtcolorbox{notita-par}{width=5.9\distx, enlarge bottom by=0\disty, enlarge top by=1\disty, enlarge left by=-0.55\distx, nobeforeafter, boxrule=0pt, colback=white, colframe=color2!40!white, left=1pt, right=3pt, top=2pt,bottom=2pt, rightrule=0.6pt, leftrule=0pt,toprule=0pt,bottomrule=0pt, arc=0pt}
+
+\newtcolorbox{numero-subseccion}{width=2.6\distx, height=1.4\disty, enlarge top by=-3pt, enlarge left by=-2.8\distx, enlarge right by= 4.613\distx, nobeforeafter, boxrule=0pt, colback=white, colframe=white, left=0.1\distx, right=0.1\distx, bottom= 0.455\distx, top=0.145\distx, arc=0pt}
+
+\newtcolorbox{titulo-subseccion}{width=28.8\distx, enlarge top by=-3pt, enlarge left by=-0.2\distx, enlarge bottom by=0\distx, nobeforeafter, boxrule=0pt, colback=white, colframe=white, left=0.1\distx, right=0.1\distx, bottom= -0.4\distx, top=0\distx, arc=0pt}
+
+\newtcolorbox{titulo-subseccion-blanco}{width=28\distx, enlarge top by=-0pt, enlarge left by=0pt, enlarge bottom by=0pt, nobeforeafter, colback=white, colframe=white, left=0\distx, right=0.5\distx, bottom= -4pt, top=-2pt, arc=0pt, bottomrule=0pt, leftrule=0pt, toprule= 0mm, rightrule= 0mm}
+
+\newtcolorbox{titulo-subseccion-continuacion}{width=32\distx, enlarge top by=-3pt, enlarge left by=-0.2\distx, enlarge bottom by=0.4\distx, nobeforeafter, boxrule=0pt, colback=white, colframe=white, left=0.3\distx, right=0.1\distx, bottom= -0.4\distx, top=0\distx, arc=0pt}
+
+\newtcolorbox{titulo}{width=34\distx, height=3\disty, enlarge top by=-3pt, enlarge left by=-3pt, enlarge bottom by=0.2\disty, nobeforeafter, colback=white, colframe=white, left=0.5\distx, right=0.5\distx, top=32pt,bottom=-48pt, arc=0pt, boxrule=0pt}
+
+\newtcolorbox{centrador}{width=34\distx, enlarge top by=-48pt, enlarge left by=-3pt, enlarge bottom by=0pt, nobeforeafter, colback=white, colframe=white, left=-3pt, right=-3pt, bottom= -3pt, top=-3pt, arc=0pt, boxrule=0pt}
+
+\newtcolorbox{centrador-par}{width=34\distx, enlarge top by=-48pt, enlarge left by=66.7pt, enlarge bottom by=0pt, nobeforeafter, colback=white, colframe=white, left=-3pt, right=-3pt, bottom= -3pt, top=-3pt, arc=0pt, boxrule=0pt}
+
+\newtcolorbox{subtitulo}{width=22\distx, height=3\disty, enlarge top by=-3pt, enlarge left by=-3pt, enlarge bottom by=0.1\disty, nobeforeafter, colframe=white, colback=white, left=0\distx, right=0\distx, bottom= 0pt, top=0pt, arc=0pt, boxrule=0pt}
+
+\newtcolorbox{subtitulo-una}{width=28\distx, height=3\disty, enlarge top by=-3pt, enlarge left by=-3pt, enlarge bottom by=0.1\disty, nobeforeafter, colframe=white, colback=white, left=0\distx, right=0\distx, bottom= 0pt, top=0pt, arc=0pt, boxrule=0pt}
+
+\newtcolorbox{grafica}{width=22.1\distx, height=12\disty, enlarge top by=-3pt, enlarge left by=-5pt, enlarge bottom by=0.1\disty, nobeforeafter, colframe=white, colback=white, left=-2pt, right=-2pt, bottom= -2pt, top=-4pt, arc=0pt, boxrule=0pt}
+
+\newtcolorbox{grafica-una}{width=33.4\distx, height=24.9\disty, enlarge top by=-3pt, enlarge left by=-5pt, enlarge bottom by=0.1\disty, nobeforeafter, colframe=white, colback=white, left=-2pt, right=-2pt, bottom= -2pt, top=-4pt, arc=0pt, boxrule=0pt}
+
+\newtcolorbox{fuente}{width=22\distx, height=1\disty, enlarge top by=-3pt, enlarge left by=-3pt, enlarge bottom by=0\disty, nobeforeafter, colframe=white, colback=white, left=0pt, right=0pt, bottom= 0pt, top=2pt, arc=0pt, boxrule=0pt}
+
+\newtcolorbox{fuente-una}{width=33.4\distx, height=1\disty, enlarge top by=-3pt, enlarge left by=-3pt, enlarge bottom by=0\disty, nobeforeafter, colframe=white, colback=white, left=0pt, right=0pt, bottom= 0pt, top=2pt, arc=0pt, boxrule=0pt}
+
+\newtcolorbox{columna-central}{width=22\distx, height=15.9\disty, enlarge top by=-3pt, enlarge left by=-8pt, enlarge bottom by=0\disty, nobeforeafter, colframe=white, colback=white, left=0pt, right=0pt, bottom= 0pt, top=0pt, arc=0pt, boxrule=0pt}
+
+\newtcolorbox{columna-central-una}{width=33.4\distx, height=28.9\disty, enlarge top by=-3pt, enlarge left by=-4pt, enlarge bottom by=0\disty, nobeforeafter, colframe=white, colback=white, left=0pt, right=0pt, bottom= 0pt, top=0pt, arc=0pt, boxrule=0pt}
+
+\newtcolorbox{vacio1}{width=6\distx, height=3\disty, enlarge top by=-3pt, enlarge left by=-3pt, enlarge bottom by=0.1\disty, nobeforeafter, colframe=white, colback=white, left=0pt, right=0pt, bottom= 0pt, top=0pt, arc=0pt, boxrule=0pt}
+
+\newtcolorbox{nota}{width=6\distx, height=12\disty, enlarge top by=-3pt, enlarge left by=-3pt, enlarge bottom by=0.1\disty, nobeforeafter, colframe=white, colback=white, left=0pt, right=0pt, bottom= 0pt, top=0pt, arc=0pt, boxrule=0pt}
+
+\newtcolorbox{nota-una}{width=6\distx, height=24.9\disty, enlarge top by=-3pt, enlarge left by=-3pt, enlarge bottom by=0.1\disty, nobeforeafter, colframe=white, colback=white, left=0pt, right=0pt, bottom= 0pt, top=0pt, arc=0pt, boxrule=0pt}
+
+\newtcolorbox{vacio2}{width=6\distx, height=1\disty, enlarge top by=-3pt, enlarge left by=-3pt, enlarge bottom by=0\disty, nobeforeafter, colframe=white, colback=white, left=0pt, right=0pt, bottom= 0pt, top=0pt, arc=0pt, boxrule=0pt}
+
+\newtcolorbox{columna-marginal}{width=6\distx, height=15.9\disty, enlarge top by=-3pt, enlarge left by=-8pt, enlarge bottom by=0\disty, nobeforeafter, colframe=white, colback=white, left=0pt, right=0pt, bottom= 0pt, top=0pt, arc=0pt, boxrule=0pt}
+
+\newtcolorbox{columna-marginal-una}{width=6\distx, height=28.9\disty, enlarge top by=-3pt, enlarge left by=-8pt, enlarge bottom by=0\disty, nobeforeafter, colframe=white, colback=white, left=0pt, right=0pt, bottom= 0pt, top=0pt, arc=0pt, boxrule=0pt}
+
+
+% Encabezado y pie de página
+\usepackage{fancyhdr}
+
+	%cajitas de encabezado y pie de página
+	\newtcbox{pagina}{nobeforeafter, boxrule=0.6pt, colback=color2!98!white, colframe=color2!98!white, left=3pt, right=3pt, bottom= 2pt, top=3pt, arc=0pt, enlarge left by=-5pt, enlarge right by=-5pt}
+	
+	\newtcbox{piecapitulo}{nobeforeafter, boxrule=0pt, colback=white, colframe=color2!98!white, bottomrule=0.6pt, left=0pt, right=0pt, bottom= -3.45pt, top=3pt, arc=0pt}
+
+	%definición de estilo estándar de página
+	\fancypagestyle{estandar}{%
+	\fancyhf{}
+	\fancyfoot[RO]{\setlength{\arrayrulewidth}{0.7pt}\arrayrulecolor{color2!95!black}\color{color2!95!black}
+		\begin{tabular}{p{10cm}|x{0.5cm}}
+	 &\\[-0.4cm]
+	\hfill\chaptitle$\,\,$ &    \thepage  \\ 
+	\end{tabular} \hspace{-1.2cm} \arrayrulecolor{color1!80!black}
+	}
+	\fancyfoot[LE]{\setlength{\arrayrulewidth}{0.7pt}\arrayrulecolor{color2!95!black}\color{color2!95!black}
+	\hspace{-1.2cm}\begin{tabular}{x{0.5cm}|p{10cm}}
+	&\\[-0.4cm]
+	 \thepage &  $\,\,$Encuesta Nacional de Empleos e Ingresos 1-2014 \\ 
+	\end{tabular} \arrayrulecolor{color1!80!black}
+	}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}}
+
+\pagestyle{empty}
+
+%Formato de encabezados
+	\usepackage[explicit]{titlesec}
+	%\usepackage{sectsty}
+
+
+	\titleformat{\subsection}[runin]{}{}{0pt}{}[]
+	\titlespacing{\subsection}{0pt}{-20pt}{0pt}
+	
+	\titleformat{\section}[runin]{}{}{0pt}{}[]
+	\titlespacing{\section}{0pt}{-20pt}{0pt}
+		
+	\titleformat{\chapter}[runin]{}{}{0pt}{}[]
+	\titlespacing{\section}{0pt}{-20pt}{0pt}
+		
+	%Comandos recolectores de información del pie de página
+		\newcommand{\chaptitle}{}
+		\newcommand{\subsectitle}{}
+		\newcommand{\sectitle}{}
+	 	 
+	%Cajitas de capítulo
+		\newtcolorbox{numero-capitulo}{width=4.5\distx, height= 5\disty, enlarge top by=-3pt, enlarge left by=-3pt, nobeforeafter, boxrule=0pt, colback=color1!95!black, colframe=color1!95!black, left=0\distx, right=0\distx, bottom= 0.2\distx, top=1.2\distx, arc=0pt}	
+		
+		\newtcolorbox{titulo-capitulo}{enhanced,width=34\distx, height= 5\disty, enlarge top by=-3pt, enlarge left by=1.5cm, nobeforeafter, boxrule=0pt, interior style={left color=color1!10!white,
+		right color=white}, left=0\distx, right=-4.5\distx, bottom= 0\distx, top=0\distx, arc=0pt}
+		
+		\newtcolorbox{numero-capitulo-long}{width=6\distx, height= 5\disty, enlarge top by=-3pt, enlarge left by=-3pt, nobeforeafter, boxrule=0pt, colback=color1!95!black, colframe=color1!95!black, left=0\distx, right=0\distx, bottom= 0.2\distx, top=1.2\distx, arc=0pt}	
+		
+		\newtcolorbox{titulo-capitulo-long}{enhanced,width=34\distx, height= 5\disty, enlarge top by=-3pt, enlarge left by=1.5cm, nobeforeafter, boxrule=0pt, interior style={left color=color1!10!white,
+		right color=white}, left=0\distx, right=-6\distx, bottom= 0\distx, top=0\distx, arc=0pt}
+		
+		\newtcolorbox{capitulo-descripcion}{width=22\distx, enlarge top by=-3pt, enlarge left by=-3pt, nobeforeafter, enlarge right by = 6\distx, colback=white, colframe=color1!20!white, left=1.5\distx, right=2\distx, bottom= 1\distx, top= 1\distx, arc=0pt, bottomrule=0pt, leftrule=2pt, toprule= 0pt, rightrule= 0pt}
+		
+		
+	%Cajitas de apéndice
+		\newtcolorbox{numero-capitulo-app}{width=4.5\distx, height= 5\disty, enlarge top by=-3pt, enlarge left by=-3pt, nobeforeafter, boxrule=0pt, colback=color2!95!black, colframe=color2!95!black, left=0\distx, right=0\distx, bottom= 0.2\distx, top=1.2\distx, arc=0pt}	
+		
+		\newtcolorbox{titulo-capitulo-app}{enhanced,width=34\distx, height= 5\disty, enlarge top by=-3pt, enlarge left by=1.5cm, nobeforeafter, boxrule=0pt, interior style={left color=color2!10!white,
+		right color=white}, left=0\distx, right=-4\distx, bottom= 0\distx, top=0\distx, arc=0pt}
+		
+		\newtcolorbox{capitulo-descripcion-app}{width=22\distx, enlarge top by=-3pt, enlarge left by=-3pt, nobeforeafter, enlarge right by = 6\distx, colback=white, colframe=color2!20!white, left=1.5\distx, right=2\distx, bottom= 1\distx, top= 1\distx, arc=0pt, bottomrule=0pt, leftrule=2pt, toprule= 0pt, rightrule= 0pt}
+
+
+%macro de sección	
+	 	
+	\newcommand{\subsecnew}[1]{\renewcommand{\subsectitle}{#1} \subsection{#1} {\Bold\large \subsectitle\\[-0.35cm]}}
+
+	\newcounter{secnumber}[chapter]
+	
+	\newcommand{\secnew}[1]{\stepcounter{secnumber}\renewcommand{\sectitle}{#1} \section{#1} { \raisebox{0pt}{\begin{titulo-subseccion-blanco} \Bold\large\sectitle\vphantom{p}\end{titulo-subseccion-blanco}}\\[-0.35cm]}}
+
+
+
+% Formato de números de sección, subsección, etc...
+	
+	\newcommand{\secnumbering}{{\large\Bold \thechapter.\thesecnumber}}
+
+
+
+%Macros de relleno de contenido
+
+\newcommand{\INEchapter}[4]{\cleardoublepage\addtocontents{toc}{\protect\addvspace{0.6\baselineskip}\color{color1!80!black}}\chapter[\texorpdfstring{\color{color1!80!black}#1}{#1}]{#2}\renewcommand{\chaptitle}{#1}\thispagestyle{empty}\addtocontents{toc}{\protect\addvspace{0.3\baselineskip}{\color{color1!10!white}\hrule height 0.9pt} \addvspace{0.6\baselineskip} \color{black}} \stepcounter{secnumber} $\ $\\[-1cm]
+	 \begin{titulo-capitulo}
+	 	\begin{numero-capitulo}\centering
+			{\fontsize{24mm}{1em}\selectfont\color{white} \Bold \thechapter}
+		\end{numero-capitulo}\quad 
+		\raisebox{2.1\disty}{\begin{tabular}{l}
+		\fontsize{9.5mm}{1em}\selectfont \Bold \color{color1!95!black} #2\\ 
+		\fontsize{9.5mm}{1em}\selectfont \Bold \color{color1!95!black} #3 \vphantom{Í} 
+		\end{tabular}}
+	\end{titulo-capitulo}
+		$\ $\\[1.5cm]
+		\begin{flushright}
+			\begin{capitulo-descripcion}
+				\large #4
+			\end{capitulo-descripcion}
+		\end{flushright}
+		\cleardoublepage
+		}
+		
+
+\newcommand{\INEchapterlong}[4]{\cleardoublepage\addtocontents{toc}{\protect\addvspace{0.6\baselineskip}\color{color1!80!black}}\chapter[\texorpdfstring{\color{color1!80!black}#1}{#1}]{#2}\renewcommand{\chaptitle}{#1}\thispagestyle{empty}\addtocontents{toc}{\protect\addvspace{0.3\baselineskip}{\color{color1!10!white}\hrule height 0.9pt} \addvspace{0.6\baselineskip} \color{black}} \stepcounter{secnumber} $\ $\\[-1cm]
+	 \begin{titulo-capitulo-long}
+	 	\begin{numero-capitulo-long}\centering
+			{\fontsize{24mm}{1em}\selectfont\color{white} \Bold \thechapter}
+		\end{numero-capitulo-long}\quad 
+		\raisebox{2.1\disty}{\begin{tabular}{l}
+		\fontsize{9.5mm}{1em}\selectfont \Bold \color{color1!95!black} #2\\ 
+		\fontsize{9.5mm}{1em}\selectfont \Bold \color{color1!95!black} #3 \vphantom{Í} 
+		\end{tabular}}
+	\end{titulo-capitulo-long}
+		$\ $\\[1.5cm]
+		\begin{flushright}
+			\begin{capitulo-descripcion}
+				\large #4
+			\end{capitulo-descripcion}
+		\end{flushright}
+		\cleardoublepage
+		}
+		
+		
+\newcommand{\appchapter}[4]{\cleardoublepage\addtocontents{toc}{\protect\addvspace{-0.1\baselineskip}\color{color2!80!black}}\chapter[\texorpdfstring{\color{color2!80!black}#1}{#1}]{#2}\renewcommand{\chaptitle}{#1}\thispagestyle{empty} \stepcounter{secnumber}\stepcounter{Cuadro} $\ $\\[1cm]
+	 \begin{titulo-capitulo-app}
+	 	\begin{numero-capitulo-app}\centering
+			{\fontsize{24mm}{1em}\selectfont\color{white} \Bold \thechapter}
+		\end{numero-capitulo-app}\quad 
+		\raisebox{2.1\disty}{\begin{tabular}{l}
+		\fontsize{9.5mm}{1em}\selectfont \Bold \color{color2!95!black} #2\\ 
+		\fontsize{9.5mm}{1em}\selectfont \Bold \color{color2!95!black} #3 \vphantom{Í} 
+		\end{tabular}}
+	\end{titulo-capitulo-app}
+		$\ $\\[1.5cm]
+
+		\cleardoublepage
+		}
+
+
+
+\newcommand{\hoja}[1]{\noindent\begin{fondo} #1 \end{fondo}\clearpage}
+
+
+
+\newcommand{\notita}[1]{\checkoddpage\ifoddpage
+	\begin{notita-impar}
+		\scriptsize\color{color2!98!white} #1
+	\end{notita-impar}
+\else
+	\begin{notita-par}
+		\scriptsize\color{color2!98!white} #1
+	\end{notita-par}
+\fi
+}
+
+
+
+\newcommand{\cajita}[7]{\checkoddpage\ifoddpage
+\begin{bloque-media}
+\begin{titulo}
+\begin{centrador}
+	\begin{tabular}{p{2.5\distx}p{28.8\distx}}
+	 & \\[-3mm]	
+	 & {\begin{titulo-subseccion}\begin{numero-subseccion}\secnumbering \end{numero-subseccion}  \phantomsection{\secnew{#1}}  \end{titulo-subseccion}}  \\[-5mm]
+	 &  \\[-1.3pt]
+	\end{tabular}
+\end{centrador}
+\end{titulo}
+
+\begin{tabular}{p{11\distx}p{21\distx}p{5\distx}}
+		\begin{descripcion}
+			#2
+		\end{descripcion} 
+	& 
+		\begin{columna-central}
+			\begin{subtitulo}
+				\centering\footnotesize{\Bold #3} \\
+				$\qquad\,\,$#4$\qquad\,\,$
+			\end{subtitulo}
+	
+			\begin{grafica}\centering
+				#5
+			\end{grafica}
+	
+			\begin{fuente}
+				\footnotesize #6 
+			\end{fuente}
+		\end{columna-central}
+	& 
+		\begin{columna-marginal}
+			\begin{vacio1}
+			
+			\end{vacio1}
+		
+			\begin{nota}
+				#7
+			\end{nota}
+		
+			\begin{vacio2}
+			
+			\end{vacio2}
+		\end{columna-marginal}
+	\\
+\end{tabular}
+\end{bloque-media}
+\else
+\begin{bloque-media}
+\begin{titulo}
+\begin{centrador-par}
+	\begin{tabular}{p{2.5\distx}p{28.8\distx}}
+	 & \\[-3mm]	
+	 & {\begin{titulo-subseccion}\begin{numero-subseccion}\centering\secnumbering\end{numero-subseccion}  \phantomsection{\secnew{#1}}  \end{titulo-subseccion}}  \\[-5mm]
+	 &  \\[-1.3pt]
+	\end{tabular}
+\end{centrador-par}
+\end{titulo}
+
+\begin{tabular}{p{5\distx}p{21.36\distx}p{11\distx}}
+		\begin{columna-marginal}
+			\begin{vacio1}
+			
+			\end{vacio1}
+		
+			\begin{nota}
+				#7
+			\end{nota}
+		
+			\begin{vacio2}
+			
+			\end{vacio2}
+		\end{columna-marginal}		
+	& 
+		\begin{columna-central}
+			\begin{subtitulo}
+				\centering\footnotesize{\Bold #3} \\
+				$\qquad\,\,$#4$\qquad\,\,$
+			\end{subtitulo}
+	
+			\begin{grafica}\centering
+				#5
+			\end{grafica}
+	
+			\begin{fuente}
+				\footnotesize #6 
+			\end{fuente}
+		\end{columna-central}
+	& 
+		\begin{descripcion}
+			#2
+		\end{descripcion} 
+	\\
+\end{tabular}
+\end{bloque-media}
+\fi
+}
+
+
+
+\newcommand{\cajitacontinuacion}[7]{\checkoddpage\ifoddpage
+\begin{bloque-media}
+\begin{titulo}
+\begin{centrador}
+	$\!\,$\begin{tabular}{p{32.26\distx}}
+
+	  \\[-3mm]	
+	  {\begin{titulo-subseccion-continuacion}  \phantomsection{\section*{#1}} {\Bold\large$\vphantom{\frac{a}{b}}$#1} \end{titulo-subseccion-continuacion}}  \\[-5mm]
+	   \\[-1.3pt]
+	\end{tabular}
+\end{centrador}
+\end{titulo}
+
+\begin{tabular}{p{11\distx}p{21\distx}p{5\distx}}
+		\begin{descripcion}
+			#2
+		\end{descripcion} 
+	& 
+		\begin{columna-central}
+			\begin{subtitulo}
+				\centering\footnotesize{\Bold #3} \\
+				$\qquad\,\,$#4$\qquad\,\,$
+			\end{subtitulo}
+	
+			\begin{grafica}\centering
+				#5
+			\end{grafica}
+	
+			\begin{fuente}
+				\footnotesize #6 
+			\end{fuente}
+		\end{columna-central}
+	& 
+		\begin{columna-marginal}
+			\begin{vacio1}
+			
+			\end{vacio1}
+		
+			\begin{nota}
+				#7
+			\end{nota}
+		
+			\begin{vacio2}
+			
+			\end{vacio2}
+		\end{columna-marginal}
+	\\
+\end{tabular}
+\end{bloque-media}
+\else
+\begin{bloque-media}
+\begin{titulo}
+\begin{centrador-par}
+	$\!\,$\begin{tabular}{p{32.26\distx}}
+
+	  \\[-3mm]	
+	  \begin{titulo-subseccion-continuacion}  \phantomsection{\section*{#1}} {\Bold\large$\vphantom{\frac{a}{b}}$#1} \end{titulo-subseccion-continuacion} \\[-5mm]
+	   \\[-1.3pt]
+	\end{tabular}
+\end{centrador-par}
+\end{titulo}
+
+\begin{tabular}{p{5\distx}p{21.36\distx}p{11\distx}}
+		\begin{columna-marginal}
+			\begin{vacio1}
+			
+			\end{vacio1}
+		
+			\begin{nota}
+				#7
+			\end{nota}
+		
+			\begin{vacio2}
+			
+			\end{vacio2}
+		\end{columna-marginal}		
+	& 
+		\begin{columna-central}
+			\begin{subtitulo}
+				\centering\footnotesize{\Bold #3} \\
+				$\qquad\,\,$#4$\qquad\,\,$
+			\end{subtitulo}
+	
+			\begin{grafica}\centering
+				#5
+			\end{grafica}
+	
+			\begin{fuente}
+				\footnotesize #6 
+			\end{fuente}
+		\end{columna-central}
+	& 
+		\begin{descripcion}
+			#2
+		\end{descripcion} 
+	\\
+\end{tabular}
+\end{bloque-media}
+\fi
+}
+
+
+
+\newcommand{\cajota}[7]{\checkoddpage\ifoddpage
+\begin{bloque-una}
+\begin{titulo}
+\begin{centrador}
+	\begin{tabular}{p{2.5\distx}p{28.8\distx}}
+	 & \\[-3mm]	
+	 & {\begin{titulo-subseccion}\begin{numero-subseccion}\centering\secnumbering\end{numero-subseccion}  \phantomsection{\secnew{#1}}  \end{titulo-subseccion}}  \\[-5mm]
+	 &  \\[-1.3pt]
+	\end{tabular}
+\end{centrador}
+\end{titulo}
+
+\begin{tabular}{p{32.95\distx}p{5\distx}}
+		\begin{descripcion-una}
+			#2
+		\end{descripcion-una}  &
+\\
+		\begin{columna-central-una} \centering
+			\begin{subtitulo-una}
+				\centering\footnotesize{\Bold #3} \\
+				$\qquad\,\,$#4$\qquad\,\,$
+			\end{subtitulo-una}
+	
+			\begin{grafica-una}\centering
+				#5
+			\end{grafica-una}
+	
+			\begin{fuente-una}
+				\footnotesize #6 
+			\end{fuente-una}
+		\end{columna-central-una}
+	& 
+		\begin{columna-marginal-una}
+			\begin{vacio1}
+			
+			\end{vacio1}
+		
+			\begin{nota-una}
+				#7
+			\end{nota-una}
+		
+			\begin{vacio2}
+			
+			\end{vacio2}
+		\end{columna-marginal-una}
+	\\
+\end{tabular}
+\end{bloque-una}
+\else
+\begin{bloque-una}
+\begin{titulo}
+\begin{centrador-par}
+	\begin{tabular}{p{2.5\distx}p{28.8\distx}}
+	 & \\[-3mm]	
+	 & {\begin{titulo-subseccion}\begin{numero-subseccion}\centering\secnumbering\end{numero-subseccion}  \phantomsection{\secnew{#1}}  \end{titulo-subseccion}}  \\[-5mm]
+	 &  \\[-1.3pt]
+	\end{tabular}
+\end{centrador-par}
+\end{titulo}
+
+$\!\!\!$\begin{tabular}{p{5\distx}p{32.95\distx}}
+		  &
+			\begin{descripcion-una}
+				#2
+			\end{descripcion-una}
+\\
+		\begin{columna-marginal-una}
+			\begin{vacio1}
+			
+			\end{vacio1}
+		
+			\begin{nota-una}
+				#7
+			\end{nota-una}
+		
+			\begin{vacio2}
+			
+			\end{vacio2}
+		\end{columna-marginal-una}
+	&
+			\begin{columna-central-una} \centering
+				\begin{subtitulo-una}
+					\centering\footnotesize{\Bold #3} \\
+					$\qquad\,\,$#4$\qquad\,\,$
+				\end{subtitulo-una}
+		
+				\begin{grafica-una}\centering
+					#5
+				\end{grafica-una}
+		
+				\begin{fuente-una}
+					\footnotesize #6 
+				\end{fuente-una}
+			\end{columna-central-una}
+	\\
+\end{tabular}
+\end{bloque-una}
+\fi
+}
+
+
+
+\begin{document}
+
+%\includepdf{PortadaEnei.pdf}
+\clearpage
+
+$\ $
+\vspace{14.5cm}
+
+\noindent\begin{tabular}{p{0.9cm}p{6.8cm}}
+& 2014.$\,$ Guatemala, Centro América \\
+&\Bold Instituto Nacional de Estadística\\[-0.4cm]
+&\color{blue!50!black}\url{www.ine.gob.gt}\\[0.9cm]
+\end{tabular}\\
+\noindent\begin{tabular}{p{0.9cm}p{6.8cm}}
+& Está permitida la reproducción parcial o total de los contenidos de este documento con la mención de la fuente. \\[0.5cm]
+ 
+& Este documento fue elaborado empleando  {\Sans R}, Inkscape y {\Logos \XeLaTeX}.\\
+\end{tabular} 
+
+
+\clearpage
+
+$\ $
+\vspace{7cm}
+
+\begin{center}
+\Bold \LARGE ENCUESTA NACIONAL DE EMPLEO E INGRESOS\\
+ENEI 1-2014
+\end{center}
+\cleardoublepage
+
+\hoja{
+$\ $
+\vspace{0.0cm}
+
+\begin{center}
+{\Bold \LARGE AUTORIDADES}\\[1cm]
+
+
+{\Bold \large \color{color1!89!black} JUNTA  DIRECTIVA} \\[0.4cm]
+
+
+{\Bold Ministerio de Economía}\\
+Lic. Sergio de la Torre, Titular\\
+Lic. Jacobo Rey Sigfrido Lee, Suplente\\[0.4cm]
+
+
+{\Bold Ministerio de Finanzas}\\
+Lic. Dorval Carías, Titular\\
+Lic. Edwin Oswaldo Martínez Cameros, Suplente\\[0.4cm]
+
+
+{\Bold Ministerio de Agricultura, Ganadería y Alimentación}\\
+Ing. Elmer López, Titular\\
+Ing. Carlos Alfonso Anzueto, Suplente\\[0.4cm]
+
+
+{\Bold Ministerio de Energía y Minas}\\
+Lic. Erick Archila, Titular\\
+Licda. Ivanova Ancheta, Suplente\\[0.4cm]
+
+
+{\Bold Secretaría de Planificación y Programación de la Presidencia}\\
+Licda. Ekaterina Arbolievna Parrilla, Titular\\
+Licda. Dora Marina Coc, Suplente\\[0.4cm]
+
+
+{\Bold Banco de Guatemala}\\
+Lic. Julio Roberto Suárez, Titular\\
+Lic. Sergio Francisco Recinos Rivera, Suplente\\[0.4cm]
+
+
+
+{\Bold Universidad de San Carlos de Guatemala}\\
+Ing. Murphy Olimpo Paiz, Titular\\
+Lic. Oscar René Paniagua Carrera, Suplente\\[0.4cm]
+
+
+{\Bold Universidades Privadas}\\
+Dr. Oscar Guillermo Peláez, Titular\\
+Lic. Ariel Rivera Irías, Suplente\\[0.4cm]
+
+
+{\Bold Comité Coordinador de Asociaciones\\ Agrícolas, Comerciales, Industriales y Financieras}\\
+Lic. Juan Raúl Aguilar , Titular\\
+Lic. Oscar Augusto Sequeira, Suplente\\[0.8cm]
+
+
+{\Bold \large \color{color1!89!black} GERENCIA}\\[0.2cm]
+Lic. Rubén Narciso, Gerente\\
+Lic. Jaime Mejía Salguero, Subgerente Técnico\\
+Ing. Orlando Monzón, Subgerente Administrativo Financiero\\
+
+
+\end{center}
+}
+\clearpage
+
+$\ $
+\vspace{1cm}
+
+\begin{center}
+{\Bold \LARGE EQUIPO RESPONSABLE}\\[2cm]
+
+{\Bold \large \color{color1!89!black} REVISIÓN GENERAL}\\[0.2cm]
+Rubén Narciso\\[0.8cm]
+
+
+{\Bold \large \color{color1!89!black} EQUIPO TÉCNICO}\\[0.2cm]
+Carlos Enrique Mancia Chúa\\
+Carlos Alberto Ortiz Morales\\
+Mynor Abel Flores Folgar\\
+Luis Fernando Castellanos\\
+Cesar Augusto Calderón Barillas\\
+Vivian Guzmán Quiroa\\
+Nelson Augusto Santa Cruz López\\
+Sucely Marleny Donis Bran\\
+Patricia Eugenia Hernández García\\
+Hugo Elizardo Rivas Portillo\\
+Marvin Isaac Reyes López\\
+Fabiola Beatriz Ramírez Pinto\\
+Hugo Allan García Monterrosa\\
+José Carlos Bonilla Aldana\\[0.8cm]
+
+{\Bold \large \color{color1!89!black} DIAGRAMACIÓN Y DISEÑO}\\[0.2cm]
+Ligia Morales\\
+José Carlos Bonilla Aldana\\[0.8cm]
+
+{\Bold \large \color{color1!89!black} FOTOGRAFÍAS}\\[0.2cm]
+Vivian Guzmán Quiroa\\[0.8cm]
+
+
+
+\end{center}\setcounter{page}{0}\cleardoublepage
+
+
+\swapgeometry
+
+$\ $\\[1cm]
+
+\tableofcontents
+
+\cleardoublepage
+	\pagestyle{estandar}
+	\setcounter{page}{1}
+	\setlength{\arrayrulewidth}{1.0pt}
+
+
+
+
+
+\cleardoublepage
+
+
+$\ $\\[1cm]
+\thispagestyle{empty}
+\noindent {\Bold \LARGE Presentación}
+
+
+
+
+$\ $\\
+
+El Instituto Nacional de Estadística (INE), tiene como misión: \comop diseñar y ejecutar la Política Estadística Nacional, para recopilar, producir, analizar y difundir estadísticas confiables, oportunas, transparentes y eficientes\comcl.  Con el fin de cumplir con esta misión, durante el período comprendido del 22 de abril al 22 de mayo de 2014, el INE llevó a cabo el levantamiento de la primera Encuesta Nacional de Empleo e Ingresos de 2014 (ENEI 1-2014), cuyos resultados se complace en presentar en este informe. 
+
+Es sumamente satisfactorio para el INE hacer de conocimiento público que anualmente se llevarán a cabo dos encuestas de empleo e ingresos, las cuales se realizarán con recursos del Estado guatemalteco. No obstante lo anterior, es propicio reconocer el apoyo financiero y técnico que en años anteriores han proporcionado al INE organismos internacionales y, particularmente, agradecer el acompañamiento técnico que en esta oportunidad brindó la Organización Internacional del Trabajo (OIT) y la Comisión Económica para América Latina y el Caribe (CEPAL).
+
+La ENEI 1-2014 tiene como principal objetivo obtener información estadística sobre variables de empleo, desempleo, subempleo y actividad e inactividad económica de la población. En lo que respecta a los ingresos, se captó información sobre formas, fuentes, montos, beneficios sociales y laborales, ayudas en especie y dinero, e ingresos no laborales. Complementariamente, se obtuvo información sociodemográfica como sexo, edad, estado conyugal, pertenencia a pueblos y educación. 
+
+Se espera que la información que se incluye en el presente documento contribuya tanto al análisis de las características del mercado laboral guatemalteco, como a la formulación de políticas públicas en materia laboral, que beneficien a la población guatemalteca.
+
+Resta únicamente agradecer a los ciudadanos la información proporcionada para la ENEI 1-2014, la cual se enmarca en el Sistema Integrado de Encuestas de Hogares (SIEH).
+
+$\ $
+
+\noindent Atentamente,
+
+
+\begin{center}
+Rubén Darío Narciso Cruz\\
+Gerente\\
+Instituto Nacional de Estadística
+\end{center}
+
+
+\cleardoublepage
+
+
+$\ $\\[0cm]
+
+\noindent {\Bold \LARGE Antecendentes y objetivos de la encuesta}\\[7mm]
+
+
+
+\noindent {\color{color1!80!black}\Bold\Large Antecedentes}\\[1mm] \thispagestyle {empty}
+
+De2002 a la fecha, el Instituto Nacional de Estadística (INE) viene realizando esfuerzos para generar información estadística que posibilite estudiar y analizar los diferentes fenómenos asociados al mercado de trabajo, y que sirvan de insumo para la instrumentación de programas tendentes a mejorar las condiciones laborales de la población guatemalteca. 
+
+En efecto, entre 2002 y 2003 el INE llevó a cabo cuatro encuestas de empleo, con carácter trimestral, las cuales permitieron conocer la estructura y evolución del mercado de trabajo. Estas encuestas cubrieron tres dominios de estudio: urbano metropolitano (dominio 1); resto urbano (dominio 2), integrado por las áreas urbanas de todos los departamentos de la República, exceptuando el departamento de Guatemala; y rural nacional (dominio 3), representativo de las áreas rurales del país.
+
+Entre septiembre y noviembre de 2004, el INE realizó una encuesta utilizando un mayor tamaño de muestra, la que generó información a nivel departamental urbano y rural nacional. Posteriormente, en 2009, con el apoyo financiero del Banco Interamericano de Desarrollo (BID), se programaron tres encuestas adicionales, las que se llevaron a cabo en2010, 2011 y 2012.
+
+Para 2013, nuevamente se planificó la realización de dos encuestas de empleo e ingresos, con recursos provenientes del Presupuesto Nacional. La primera de ellas (ENEI 1-2013), se realizó entre abril y mayo; la segunda (ENEI 2-2013),durante los meses de octubre y noviembre.
+
+Al igual que en anteriores encuestas de empleo e ingreso, la ENEI 1-2014 fue diseñada para satisfacer la necesidad de caracterizar las variables relacionadas con los temas de actividad económica y social de la población guatemalteca; así como generar información actualizada sobre las tendencias de los indicadores de empleo, desempleo y subempleo, requeridas por el sector público y privado, así como por organismos internacionales, para evaluar técnicamente la actividad socioeconómica del país y diseñar e implementar políticas y programas en el ámbito laboral.\\[6mm]
+
+
+\noindent{\color{color1!80!black}\Bold\Large Objetivos de la ENEI 1-2014}\\[1mm] 
+
+
+\noindent\textbf{General:}
+
+Fortalecer las estadísticas que explican la evolución y caracterización del mercado de trabajo y que permiten analizar más ampliamente los temas relativos a la actividad económica en general, así como el Sistema Integrado de Encuestas de Hogares (SIEH).
+
+
+\noindent\textbf{Específicos:}\\[-0.5cm]
+
+
+\begin{itemize}
+\item[A.] Producir información sobre:
+
+\begin{itemize}
+\item[$\bullet$] Las diferentes variables del empleo; el desempleo; la actividad e inactividad económica de la población; y la inserción laboral, incluida la caracterización social y económica de las personas involucradas.
+\item[$\bullet$] Las características, composición, estructura y funcionamiento del mercado de trabajo.
+\end{itemize}
+
+\item[B.]	Contar con indicadores relacionados con el mercado de trabajo, que permitan analizar su coyuntura y tendencias dentro de la actividad económica y social del país.
+
+\item[C.]	Generar información sobre las principales variables del contexto socioeconómico y familiar que inciden en el mercado de trabajo, como la seguridad social, la educación, las condiciones de habitación, la composición familiar y la generación de formas colectivas de ingresos al interior de los hogares.
+\end{itemize}\thispagestyle{empty}\setcounter{page}{0}
+\cleardoublepage
+
+
+\restoregeometry
+
+
+
+
+%--------------------------CONTENIDOS---------------------------
+
+
+
+
+%--------------------inicio de capítulo 1-------------------------------------------
+
+\INEchapter{Contexto macroeconómico y demográfico}{Contexto macroeconómico }{y demográfico}{\quad Las características de la población (en términos de edades, sexo, escolaridad; entre otras) determinan las cualidades y cómo se compone  la fuerza laboral de un país. \\[3mm]
+	
+\quad Por otro lado, la actividad económica y el modelo de desarrollo determinan grandemente la demanda en el mercado laboral, es decir, la capacidad de la economía de generar puestos de trabajo y las características de estos.
+}
+
+
+
+
+\hoja{
+	\cajita{Producto Interno Bruto}{\input{d01_01}}{Crecímiento anual del PIB a precios constantes de 2001Crecimiento anual del PIB a precios constantes de 20}{ Crecimiento anual del PIB a precios constantes de 20}{\ \\[-4mm]\begin{tikzpicture}[x=1pt,y=1pt]
+		\input{prueba}
+		\end{tikzpicture}} {Fuente: Banco de Guatemala \guiop BANGUAT \guicl)}{ }
+ 	
+		\cajita{Producto Interno Bruto}{\input{d01_01}}{Crecimiento anual del PIB a precios constantes de 2001Crecimiento anual del PIB a precios constantes de 20}{ Crecimiento anual del PIB a precios constantes de 20}{\ \\[-4mm]\begin{tikzpicture}[x=1pt,y=1pt]
+			\input{prueba2}
+			\end{tikzpicture}} {Fuente: Banco de Guatemala \guiop BANGUAT \guicl)}{ }
+
+}
+
+\hoja{
+	\cajita{Producto Interno Bruto}{\input{d01_01}}{Crecímiento anual del PIB a precios constantes de 2001Crecimiento anual del PIB a precios constantes de 20}{ Crecimiento anual del PIB a precios constantes de 20}{\ \\[-4mm]\begin{tikzpicture}[x=1pt,y=1pt]
+		\input{prueba007}
+		\end{tikzpicture}} {Fuente: Banco de Guatemala \guiop BANGUAT \guicl)}{ }
+	
+	\cajita{Producto Interno Bruto}{\input{d01_01}}{Crecimiento anual del PIB a precios constantes de 2001Crecimiento anual del PIB a precios constantes de 20}{ Crecimiento anual del PIB a precios constantes de 20}{\ \\[-4mm]\begin{tikzpicture}[x=1pt,y=1pt]
+		\input{prueba107}
+		\end{tikzpicture}} {Fuente: Banco de Guatemala \guiop BANGUAT \guicl)}{ }
+	
+}
+
+
+
+\hoja{
+	\cajita{Producto Interno Bruto}{\input{d01_01}}{Crecímiento anual del PIB a precios constantes de 2001Crecimiento anual del PIB a precios constantes de 20}{ Crecimiento anual del PIB a precios constantes de 20}{\ \\[-4mm]\begin{tikzpicture}[x=1pt,y=1pt]
+		\input{prueba009}
+		\end{tikzpicture}} {Fuente: Banco de Guatemala \guiop BANGUAT \guicl)}{ }
+	
+	\cajita{Producto Interno Bruto}{\input{d01_01}}{Crecimiento anual del PIB a precios constantes de 2001Crecimiento anual del PIB a precios constantes de 20}{ Crecimiento anual del PIB a precios constantes de 20}{\ \\[-4mm]\begin{tikzpicture}[x=1pt,y=1pt]
+		\input{prueba110}
+		\end{tikzpicture}} {Fuente: Banco de Guatemala \guiop BANGUAT \guicl)}{ }
+	
+}
+
+\hoja{
+	\cajita{Producto Interno Bruto}{\input{d01_01}}{Crecímiento anual del PIB a precios constantes de 2001Crecimiento anual del PIB a precios constantes de 20}{ Crecimiento anual del PIB a precios constantes de 20}{\ \\[-4mm]\begin{tikzpicture}[x=1pt,y=1pt]
+		\input{prueba210}
+		\end{tikzpicture}} {Fuente: Banco de Guatemala \guiop BANGUAT \guicl)}{ }
+	
+	\cajita{Producto Interno Bruto}{\input{d01_01}}{Crecimiento anual del PIB a precios constantes de 2001Crecimiento anual del PIB a precios constantes de 20}{ Crecimiento anual del PIB a precios constantes de 20}{\ \\[-4mm]\begin{tikzpicture}[x=1pt,y=1pt]
+		\input{prueba110}
+		\end{tikzpicture}} {Fuente: Banco de Guatemala \guiop BANGUAT \guicl)}{ }
+	
+}
+
+\hoja{
+	\cajita{Producto Interno Bruto}{\input{d01_01}}{Crecímiento anual del PIB a precios constantes de 2001Crecimiento anual del PIB a precios constantes de 20}{ Crecimiento anual del PIB a precios constantes de 20}{\ \\[-4mm]\begin{tikzpicture}[x=1pt,y=1pt]
+		\input{prueba310}
+		\end{tikzpicture}} {Fuente: Banco de Guatemala \guiop BANGUAT \guicl)}{ }
+	
+	\cajita{Producto Interno Bruto}{\input{d01_01}}{Crecimiento anual del PIB a precios constantes de 2001Crecimiento anual del PIB a precios constantes de 20}{ Crecimiento anual del PIB a precios constantes de 20}{\ \\[-4mm]\begin{tikzpicture}[x=1pt,y=1pt]
+		\input{prueba110}
+		\end{tikzpicture}} {Fuente: Banco de Guatemala \guiop BANGUAT \guicl)}{ }
+	
+}
+% -------------------------Fin de hoja-----------------------------
+
+
+
+
+
+
+%\includepdf{ContraportadaEnei.pdf}
+\end{document}

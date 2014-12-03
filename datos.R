@@ -17,6 +17,12 @@ t01_04[,2] <- as.numeric(levels(t01_04[,2]))[t01_04[,2]]
 dir <- paste(getwd(),"data prueba", sep = "/")
 filenames <- list.files(path = dir, pattern = ".csv", full.names = TRUE)
 numfiles <- length(filenames)
+for(i in 1:numfiles)
+{
+  shell(cmd=paste("iconv -f ISO-8859-1 -t UTF-8 <\"",filenames[[i]],"\">", paste(getwd(),"Temporal", basename(filenames[[i]]),sep="/"), sep = ""), mustWork=TRUE, intern=F, translate=TRUE)
+}
+dir <- paste(getwd(),"Temporal", sep = "/")
+filenames <- list.files(path = dir, pattern = ".csv", full.names = TRUE)
 
 All <- lapply(filenames,function(i){
   read.csv(i, sep = ";")

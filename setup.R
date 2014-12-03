@@ -51,7 +51,8 @@ temaINE <- theme_gray(base_size = fontSize, base_family = "Open Sans Condensed L
 temaBarras <- temaINE
 temaBarras <- temaBarras + theme(
   axis.line.y = element_line(colour = grisBase),
-  axis.line.x = element_line(colour = NA)
+  axis.line.x = element_line(colour = NA),
+  axis.text.y = element_text(hjust = 1, vjust = 0.5)
   ) 
 
 temaColumnas <- temaINE
@@ -84,9 +85,11 @@ options(tikzDocumentDeclaration= "\\documentclass[12pt]{book}")
 
 
 #***********************ALGUNAS VARIABLES UTILES*******************#
-ignorado <- c("Ignorado", "ignorado", "IGNORADO", "otros", "Otro", "Otros", "OTROS")
+ignorado <- c("Ignorado", "ignorado", "IGNORADO", "otros", "Otro", "Otros", "OTROS", "Ignorada", "ignorada")
+repu <- c("Total República", "Total Republica", "Total república", "Total republica")
 pts2mm <- 0.352777778
-color <- rgb(0.7254901960784314,0.4431372549019608,0.6235294117647059, maxColorValue = 1)
+color <- rgb(219,174,109, maxColorValue = 255)
+color2 <- rgb(154,160,124, maxColorValue = 255)
 izquierdo <- -5
 abajo <- -8
 
