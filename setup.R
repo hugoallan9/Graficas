@@ -28,7 +28,7 @@ cargarPaquete("tools")
 
 
 
-gris <- rgb(100,100,100, maxColorValue = 255)
+gris <- rgb(200,200,200, maxColorValue = 255)
 grisBase <- rgb(152,152,152, maxColorValue = 255)
 fontSize = 10
 temaINE <- theme_gray(base_size = fontSize, base_family = "Open Sans Condensed Light")+ theme(
@@ -85,11 +85,11 @@ options(tikzDocumentDeclaration= "\\documentclass[12pt]{book}")
 
 
 #***********************ALGUNAS VARIABLES UTILES*******************#
+repu <- c("Total República, Total republica, Total república, Total Republica")
 ignorado <- c("Ignorado", "ignorado", "IGNORADO", "otros", "Otro", "Otros", "OTROS", "Ignorada", "ignorada")
-repu <- c("Total República", "Total Republica", "Total república", "Total republica")
 pts2mm <- 0.352777778
 color <- rgb(219,174,109, maxColorValue = 255)
-color2 <- rgb(154,160,124, maxColorValue = 255)
+color2 <- rgb(0.603921568627451,0.6274509803921569,0.4862745098039216)
 izquierdo <- -5
 abajo <- -8
 

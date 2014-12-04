@@ -204,7 +204,6 @@ exportarLatex("2_17.tex",g55)
 
 g56 <- graficaCol(tablas$"2_19")
 g56 <- etiquetasHorizontales(g56)
-g56 <- rotarEtiX(g56)
 exportarLatex("2_19.tex",g56)
 
 g57 <- graficaCol(tablas$"2_20")
@@ -317,8 +316,8 @@ g79 <- graficaBar(tablas$"3_05")
 g79 <- etiquetasBarras(g79)
 exportarLatex("3_05.tex", g79)
 
-g80 <- graficaLinea(tablas$"4_01")
-exportarLatex("4_01.tex", g80)
+#g80 <- graficaLinea(tablas$"4_01")
+#exportarLatex("4_01.tex", g80)
 
 g81 <- graficaCol(tablas$"4_02")
 g81 <- etiquetasHorizontales(g81)
@@ -416,32 +415,32 @@ exportarLatex("7_01.tex", g100)
 
 #####ETIQUETAS VERTICALES CON ROTACION DEL EJE X######################
 g101 <- graficaCol(tablas$"7_02")
-g101 <- etiquetasHorizontales(g101)
-g101 <- rotarEtiX(g101)
+g101 <- etiquetasVerticales(g101)
+g101 <- rotarEtiX2(g101)
 exportarLatex("7_02.tex",g101)
 
 g102 <- graficaLinea(tablas$"7_03")
 exportarLatex("7_03.tex", g102)
 
 g103 <- graficaCol(tablas$"7_04")
-g103 <- etiquetasHorizontales(g103)
-g103 <- rotarEtiX(g103)
+g103 <- etiquetasVerticales(g103)
+g103 <- rotarEtiX2(g103)
 exportarLatex("7_04.tex", g103)
 
 g104 <- graficaLinea(tablas$"7_05")
 exportarLatex("7_05.tex", g104)
 
 g105 <- graficaCol(tablas$"7_06")
-g105 <- etiquetasHorizontales(g105)
-g105 <- rotarEtiX(g105)
+g105 <- etiquetasVerticales(g105)
+g105 <- rotarEtiX2(g105)
 exportarLatex("7_06.tex", g105)
 
 g106 <- graficaLinea(tablas$"7_07")
 exportarLatex("7_07.tex", g106)
 
 g108 <- graficaCol(tablas$"7_08")
-g108 <- etiquetasHorizontales(g108)
-g108 <- rotarEtiX(g108)
+g108 <- etiquetasVerticales(g108)
+g108 <- rotarEtiX2(g108)
 exportarLatex("7_08.tex", g108)
 
 g109 <- graficaLinea(tablas$"7_09")
@@ -456,24 +455,24 @@ g111 <- graficaLinea(tablas$"7_11")
 exportarLatex("7_11.tex", g111)
 
 g112 <- graficaCol(tablas$"7_12")
-g112 <- etiquetasHorizontales(g112)
-g112 <- rotarEtiX(g112)
+g112 <- etiquetasVerticales(g112)
+g112 <- rotarEtiX2(g112)
 exportarLatex("7_12.tex", g112)
 
 g113 <- graficaLinea(tablas$"7_13")
 exportarLatex("7_13.tex", g113)
 
 g114 <- graficaCol(tablas$"7_14")
-g114 <- etiquetasHorizontales(g114)
-g114 <- rotarEtiX(g114)
+g114 <- etiquetasVerticales(g114)
+g114 <- rotarEtiX2(g114)
 exportarLatex("7_14.tex", g114)
 
-#g115 <- graficaLinea(tablas$"7_15")
-#exportarLatex("7_15", g115)
+g115 <- graficaLinea(tablas$"7_15")
+exportarLatex("7_15.tex", g115)
 
 g116 <- graficaCol(tablas$"7_16")
-g116 <- etiquetasHorizontales(g116)
-g116 <- rotarEtiX(g116)
+g116 <- etiquetasVerticales(g116)
+g116 <- rotarEtiX2(g116)
 exportarLatex("7_16.tex", g116)
 
 g117 <- graficaLinea(tablas$"7_17")
@@ -493,6 +492,9 @@ g120 <- etiquetasHorizontales(g120)
 g120 <- rotarEtiX(g120)
 exportarLatex("7_20.tex", g120)
 
-
+g130 <- graficaCol(tablas$"7_22")
+g130<- etiquetasVerticales(g130)
+g130 <- rotarEtiX2(g130)
+exportarLatex("7_21.tex",g130)
 
 

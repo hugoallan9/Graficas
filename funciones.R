@@ -172,21 +172,32 @@ completarEtiquetas <- function(dato,posicion, tam = 5)
 
 rotarEtiX <- function(graph)
 {
+  
   longitud <- 2.5 +2.5
   graph <- graph + theme(axis.text.x = element_text(angle = 90, vjust =0.5 , hjust= 1))+
     theme(plot.margin = unit(c(longitud,0,abajo,izquierdo), "mm"))
 
 }
 
-etiquetasBarras <- function(graph)
+rotarEtiX2 <- function(graph)
 {
   max <-ggplot_build(graph)$panel$ranges[[1]]$y.range[2] 
   max <- nchar(as.character(max))
-  longitud <- 1.2*max +3.3
+  longitud <- 1.2*max + 3.6
+  print(max)
+    graph <- graph + theme(axis.text.x = element_text(angle = 90, vjust =0.5 , hjust= 1))+
+    theme(plot.margin = unit(c(longitud,0,abajo,izquierdo), "mm"))
+}
+
+etiquetasBarras <- function(graph)
+{
+  max <-ggplot_build(graph)$panel$ranges[[1]]$x.range[2] 
+  max <- nchar(as.character(max))
+  longitud <- 1.2*max +3.6
   print(max)
   graph <- graph +
     geom_text(aes(family = "Open Sans Condensed Light",label= y), size=3, hjust=-0.5, vjust = 0.5)+
-    theme(plot.margin = unit(c(0,longitud,-8,-8), "mm"))
+    theme(plot.margin = unit(c(0,longitud,-8,abajo), "mm"))
 }
 
 etiquetasHorizontales <- function(graph)
@@ -262,7 +273,6 @@ calcularRampa <- function(data, color1)
       rampa = c(rampa,color1)
     }
   }
-  print(rampa)
   return(rampa)
 }
 
@@ -275,7 +285,7 @@ ordenarNiveles <- function(data, ordenar = TRUE)
   print(ordenar)
   if(ordenar)
   {
-    orden <- order(data$y, decreasing = TRUE)
+    orden <- order(data$y, decreasing = T)
     
   }
   else
